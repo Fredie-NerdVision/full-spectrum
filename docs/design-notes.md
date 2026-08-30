@@ -22,12 +22,23 @@
 - **"Photo coming soon" is a first-class state.** Toggling
   *Awaiting photography* renders a branded placeholder card instead of a broken
   or borrowed clip-art image, so new shows can go live before the photo shoot.
+  The placeholder picks up the service group's icon and a pastel tint that cycles
+  per card, so a 12-card grid of pending photos still looks intentional.
+- **Art direction is aimed at K-6 (client direction).** The audience is mostly
+  young elementary students, so the theme runs bright sky-blue → teal gradients,
+  confetti dots and a scalloped section edge, sticker-style cards with 3px navy
+  outlines and offset colour shadows, crayon underlines under section headings,
+  and headline copy about bubbles/lightning/magic instead of institutional
+  language. Text stays navy on light backgrounds for contrast.
+- **Header menu labels are editable per service group.** Full names such as
+  *School Carnivals & Festivals* overflow a one-line menu, so each group has an
+  optional shorter *Menu label* field (`group_nav_label`) used in the header only.
 - **Booking form accessibility.** Real `<label>` elements, hint text wired with
   `aria-describedby`, a non-required *Date of Event* field, 2px high-contrast
   input borders (the old hairline inputs were invisible on school monitors and
   projectors), and visible focus outlines. `Reply-To` is the submitter.
-- Palette moves off the WordPress.com purple/blue blocks to navy + amber + teal,
-  which reads as institutional-but-fun to a principal or PTA buyer.
+- Palette moves off the WordPress.com purple/blue blocks to bright blue, teal,
+  amber, tangerine and coral, with navy reserved for text and outlines.
 
 ## Mister Hypnosis (misterhypnosis.com)
 
