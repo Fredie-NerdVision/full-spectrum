@@ -1,0 +1,14 @@
+/*
+Theme Name: Full Spectrum Educational Services
+Theme URI: https://full-spectrum.org
+Author: NerdVision
+Author URI: https://nerdvision.tech
+Description: ACF-driven single-page theme for Full Spectrum Educational Services. All copy, imagery and program cards are editable from the WordPress admin without touching layout.
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 8.0
+License: Proprietary
+Text Domain: fse
+*/
+
+/* Styles live in assets/css/theme.css. This file only carries the theme header. */

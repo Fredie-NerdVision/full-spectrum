@@ -1,0 +1,14 @@
+/*
+Theme Name: Mister Hypnosis
+Theme URI: https://misterhypnosis.com
+Author: NerdVision
+Author URI: https://nerdvision.tech
+Description: ACF-driven theme for Mister Hypnosis — Richard Rumble's clean-comedy stage hypnosis show. Audience-specific landing sections, responsive Vimeo media and a booking form the client can maintain without touching layout.
+Version: 1.0.0
+Requires at least: 6.4
+Requires PHP: 8.0
+License: Proprietary
+Text Domain: mrh
+*/
+
+/* Styles live in assets/css/theme.css. This file only carries the theme header. */
