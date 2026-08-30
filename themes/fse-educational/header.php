@@ -53,7 +53,7 @@
 					printf(
 						'<li><a href="%1$s">%2$s</a></li>',
 						esc_url( home_url( '/#' . fse_group_anchor( $term ) ) ),
-						esc_html( $term->name )
+						esc_html( fse_group_nav_label( $term ) )
 					);
 				}
 

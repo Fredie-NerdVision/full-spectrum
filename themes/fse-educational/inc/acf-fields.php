@@ -51,7 +51,7 @@ add_action(
 						'label'        => __( 'Headline', 'fse' ),
 						'name'         => 'hero_heading',
 						'type'         => 'text',
-						'default_value'=> 'Curriculum-Aligned Assemblies That Students Remember',
+						'default_value'=> 'The Assembly Your K-6 Students Will Talk About All Week',
 					),
 					array(
 						'key'          => 'field_fse_hero_intro',
@@ -100,7 +100,7 @@ add_action(
 						'label'        => __( 'Heading', 'fse' ),
 						'name'         => 'programs_heading',
 						'type'         => 'text',
-						'default_value'=> 'Our Programs',
+						'default_value'=> 'Pick A Show',
 					),
 					array(
 						'key'       => 'field_fse_programs_intro',
@@ -121,7 +121,7 @@ add_action(
 						'label'        => __( 'Heading', 'fse' ),
 						'name'         => 'credentials_heading',
 						'type'         => 'text',
-						'default_value'=> 'Booked With Confidence By California Educators',
+						'default_value'=> 'Safe Hands, Happy Principals',
 					),
 					array(
 						'key'       => 'field_fse_credentials_body',
@@ -309,6 +309,13 @@ add_action(
 						'type'         => 'text',
 						'instructions' => __( 'A single emoji or character shown on the quick-navigation button.', 'fse' ),
 						'maxlength'    => 4,
+					),
+					array(
+						'key'          => 'field_fse_group_nav_label',
+						'label'        => __( 'Menu label', 'fse' ),
+						'name'         => 'group_nav_label',
+						'type'         => 'text',
+						'instructions' => __( 'Optional shorter wording for the header menu. Leave blank to use the full name.', 'fse' ),
 					),
 					array(
 						'key'   => 'field_fse_group_blurb',

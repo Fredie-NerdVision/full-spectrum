@@ -124,10 +124,21 @@ function fse_program_media( $post_id ) {
 		return;
 	}
 
+	$terms = get_the_terms( $post_id, FSE_PROGRAM_TAXONOMY );
+	$glyph = '★';
+
+	if ( is_array( $terms ) && $terms ) {
+		$icon = get_term_meta( $terms[0]->term_id, 'group_icon', true );
+
+		if ( $icon ) {
+			$glyph = $icon;
+		}
+	}
+
 	printf(
 		'<div class="card__image card__image--placeholder" role="img" aria-label="%s"><span aria-hidden="true">%s</span><em>%s</em></div>',
 		esc_attr__( 'Program photography coming soon', 'fse' ),
-		'&#9733;',
+		esc_html( $glyph ),
 		esc_html__( 'Photos coming soon', 'fse' )
 	);
 }
@@ -140,4 +151,18 @@ function fse_program_media( $post_id ) {
  */
 function fse_group_anchor( $term ) {
 	return 'services-' . $term->slug;
+}
+
+/**
+ * Header menu wording for a service group. Full names such as "School
+ * Carnivals & Festivals" are too long for a single-line menu, so editors can
+ * supply a shorter label per group.
+ *
+ * @param WP_Term $term Term.
+ * @return string
+ */
+function fse_group_nav_label( $term ) {
+	$label = get_term_meta( $term->term_id, 'group_nav_label', true );
+
+	return $label ? $label : $term->name;
 }

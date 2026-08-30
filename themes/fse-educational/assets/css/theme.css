@@ -1,24 +1,27 @@
 /*
  * Full Spectrum Educational Services
- * Palette keeps the vibrancy the client likes, but anchors it in deep navy so
- * the site reads as credible to school and district decision makers.
+ * The audience is K-6 assemblies, so the palette is primary-bright and the
+ * shapes are sticker-like. Text stays on deep navy for contrast.
  */
 
 :root {
-	--ink: #101a3c;
-	--ink-soft: #33406b;
-	--blue: #1b4fd8;
-	--blue-dark: #12327f;
-	--teal: #0fb1a6;
-	--amber: #ffb021;
-	--coral: #ff5a5f;
-	--cream: #fff7ec;
+	--ink: #17235c;
+	--ink-soft: #4a558c;
+	--blue: #2f6dff;
+	--blue-dark: #1a44b8;
+	--sky: #59c2ff;
+	--teal: #16c79a;
+	--amber: #ffc528;
+	--tangerine: #ff8a3d;
+	--coral: #ff5d73;
+	--grape: #8b5cf6;
+	--cream: #fff6e2;
 	--paper: #ffffff;
-	--line: #d8dcea;
-	--shadow-sm: 0 2px 6px rgba(16, 26, 60, 0.08);
-	--shadow-md: 0 14px 34px rgba(16, 26, 60, 0.14);
-	--radius: 18px;
-	--radius-sm: 10px;
+	--line: #e3e7f5;
+	--shadow-sm: 0 3px 0 rgba(23, 35, 92, 0.12);
+	--shadow-md: 0 16px 34px rgba(23, 35, 92, 0.16);
+	--radius: 26px;
+	--radius-sm: 14px;
 	--wrap: 1200px;
 	--display: "Fraunces", Georgia, serif;
 	--body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -59,9 +62,9 @@ h1,
 h2,
 h3 {
 	font-family: var(--display);
-	line-height: 1.1;
+	line-height: 1.05;
 	margin: 0 0 0.5em;
-	letter-spacing: -0.01em;
+	letter-spacing: -0.015em;
 }
 
 .wrap {
@@ -144,6 +147,23 @@ h3 {
 	background: rgba(255, 255, 255, 0.14);
 }
 
+/* The hero gradient is light, so the secondary button needs a solid fill. */
+.hero .btn--ghost {
+	background: var(--paper);
+	color: var(--ink);
+	border-color: var(--ink);
+	box-shadow: var(--shadow-sm);
+}
+
+.hero .btn--ghost:hover,
+.hero .btn--ghost:focus-visible {
+	background: var(--cream);
+}
+
+.hero .btn--accent {
+	border-color: var(--ink);
+}
+
 :where(a, button, input, select, textarea):focus-visible {
 	outline: 3px solid var(--teal);
 	outline-offset: 2px;
@@ -216,13 +236,13 @@ h3 {
 .site-nav {
 	display: flex;
 	align-items: center;
-	gap: 28px;
+	gap: 20px;
 }
 
 .site-nav__list {
 	display: flex;
 	align-items: center;
-	gap: 20px;
+	gap: 16px;
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -232,7 +252,8 @@ h3 {
 	color: var(--ink);
 	text-decoration: none;
 	font-weight: 600;
-	font-size: 0.92rem;
+	font-size: 0.9rem;
+	white-space: nowrap;
 }
 
 .site-nav__list a:hover,
@@ -244,6 +265,11 @@ h3 {
 	display: flex;
 	align-items: center;
 	gap: 14px;
+}
+
+/* Keep the header CTA on one line so it cannot grow taller than the bar. */
+.site-nav__actions .btn {
+	white-space: nowrap;
 }
 
 .site-nav__phone {
@@ -292,9 +318,34 @@ h3 {
 
 .hero {
 	position: relative;
-	background: linear-gradient(140deg, #0d1631 0%, #16307a 55%, #1b4fd8 100%);
+	background: linear-gradient(145deg, #2f6dff 0%, #59c2ff 55%, #16c79a 100%);
 	color: var(--paper);
 	overflow: hidden;
+}
+
+/* Confetti dots, so the hero reads as playful even before photography lands. */
+.hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background-image: radial-gradient(circle, rgba(255, 255, 255, 0.5) 3px, transparent 4px),
+		radial-gradient(circle, rgba(255, 197, 40, 0.55) 4px, transparent 5px);
+	background-size: 90px 90px, 140px 140px;
+	background-position: 0 0, 45px 55px;
+	opacity: 0.5;
+}
+
+/* Scalloped edge into the next section. */
+.hero::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -1px;
+	height: 26px;
+	background: radial-gradient(circle at 20px -6px, transparent 22px, var(--cream) 23px);
+	background-size: 40px 26px;
+	background-repeat: repeat-x;
 }
 
 .hero__banner {
@@ -321,15 +372,17 @@ h3 {
 }
 
 .hero__heading {
-	font-size: clamp(2.3rem, 5.4vw, 4rem);
+	font-size: clamp(2.4rem, 5.8vw, 4.2rem);
 	font-weight: 900;
 	margin-bottom: 18px;
+	text-shadow: 0 3px 0 rgba(23, 35, 92, 0.22);
 }
 
 .hero__intro {
-	font-size: clamp(1.05rem, 1.6vw, 1.25rem);
-	color: rgba(255, 255, 255, 0.9);
+	font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+	color: #ffffff;
 	max-width: 640px;
+	font-weight: 500;
 }
 
 .hero__actions {
@@ -349,19 +402,32 @@ h3 {
 }
 
 .hero__trust li {
-	background: rgba(255, 255, 255, 0.1);
-	border: 1px solid rgba(255, 255, 255, 0.22);
+	background: var(--paper);
+	border: 3px solid var(--ink);
 	border-radius: var(--radius);
+	box-shadow: 5px 5px 0 rgba(23, 35, 92, 0.25);
 	padding: 16px 20px;
 	font-size: 0.95rem;
-	color: rgba(255, 255, 255, 0.86);
+	color: var(--ink-soft);
+}
+
+.hero__trust li:nth-child(3n + 1) {
+	background: #fff3c9;
+}
+
+.hero__trust li:nth-child(3n + 2) {
+	background: #d9f6ee;
+}
+
+.hero__trust li:nth-child(3n) {
+	background: #ffe3e7;
 }
 
 .hero__trust strong {
 	display: block;
 	font-family: var(--display);
-	font-size: 1.1rem;
-	color: var(--amber);
+	font-size: 1.15rem;
+	color: var(--ink);
 	margin-bottom: 4px;
 }
 
@@ -407,24 +473,52 @@ h3 {
 	display: grid;
 	gap: 6px;
 	height: 100%;
-	padding: 22px;
+	padding: 24px 22px;
 	background: var(--paper);
-	border: 2px solid var(--ink);
+	border: 3px solid var(--ink);
 	border-radius: var(--radius);
 	text-decoration: none;
 	color: var(--ink);
-	box-shadow: 4px 4px 0 var(--blue);
+	box-shadow: 6px 6px 0 var(--blue);
 	transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* Each quick-nav button gets its own crayon colour. */
+.quick-nav__grid li:nth-child(5n + 1) .quick-nav__btn {
+	box-shadow: 6px 6px 0 var(--blue);
+}
+
+.quick-nav__grid li:nth-child(5n + 2) .quick-nav__btn {
+	box-shadow: 6px 6px 0 var(--teal);
+}
+
+.quick-nav__grid li:nth-child(5n + 3) .quick-nav__btn {
+	box-shadow: 6px 6px 0 var(--tangerine);
+}
+
+.quick-nav__grid li:nth-child(5n + 4) .quick-nav__btn {
+	box-shadow: 6px 6px 0 var(--grape);
+}
+
+.quick-nav__grid li:nth-child(5n) .quick-nav__btn {
+	box-shadow: 6px 6px 0 var(--coral);
 }
 
 .quick-nav__btn:hover,
 .quick-nav__btn:focus-visible {
-	transform: translate(-2px, -2px);
-	box-shadow: 7px 7px 0 var(--amber);
+	transform: translate(-3px, -3px) rotate(-1deg);
+	box-shadow: 10px 10px 0 var(--amber);
 }
 
 .quick-nav__icon {
-	font-size: 1.6rem;
+	width: 58px;
+	height: 58px;
+	display: grid;
+	place-items: center;
+	background: var(--cream);
+	border: 3px solid var(--ink);
+	border-radius: 50%;
+	font-size: 1.7rem;
 	line-height: 1;
 }
 
@@ -445,6 +539,26 @@ h3 {
 	margin-bottom: 34px;
 }
 
+/* A crayon underline under each section heading, colour cycling per section. */
+.services .section-heading::after,
+.quick-nav .section-heading::after {
+	content: "";
+	display: block;
+	width: 96px;
+	height: 8px;
+	margin-top: 12px;
+	border-radius: 999px;
+	background: var(--amber);
+}
+
+.services:nth-of-type(3n) .section-heading::after {
+	background: var(--teal);
+}
+
+.services:nth-of-type(3n + 1) .section-heading::after {
+	background: var(--coral);
+}
+
 /* ---------- Cards ---------- */
 
 .card-grid {
@@ -460,7 +574,7 @@ h3 {
 	display: flex;
 	flex-direction: column;
 	background: var(--paper);
-	border: 1px solid var(--line);
+	border: 3px solid var(--ink);
 	border-radius: var(--radius);
 	overflow: hidden;
 	box-shadow: var(--shadow-sm);
@@ -468,8 +582,31 @@ h3 {
 }
 
 .card:hover {
-	transform: translateY(-3px);
+	transform: translateY(-4px) rotate(-0.6deg);
 	box-shadow: var(--shadow-md);
+}
+
+/* Colour band along the top of each card, cycling so a long grid stays lively. */
+.card::before {
+	content: "";
+	height: 10px;
+	background: var(--blue);
+}
+
+.card-grid li:nth-child(5n + 2) .card::before {
+	background: var(--teal);
+}
+
+.card-grid li:nth-child(5n + 3) .card::before {
+	background: var(--tangerine);
+}
+
+.card-grid li:nth-child(5n + 4) .card::before {
+	background: var(--grape);
+}
+
+.card-grid li:nth-child(5n) .card::before {
+	background: var(--coral);
 }
 
 .card__image {
@@ -478,25 +615,57 @@ h3 {
 	object-fit: cover;
 }
 
+/* Pastel polka-dot stand-ins until the client's photography arrives. The tint
+   cycles per card so a long grid does not look like a wall of one colour. */
 .card__image--placeholder {
 	display: grid;
 	place-content: center;
-	gap: 6px;
-	background: repeating-linear-gradient(135deg, #16307a, #16307a 14px, #1b4fd8 14px, #1b4fd8 28px);
-	color: rgba(255, 255, 255, 0.92);
+	gap: 8px;
+	background-color: #dbeafe;
+	background-image: radial-gradient(circle, rgba(255, 255, 255, 0.85) 5px, transparent 6px);
+	background-size: 34px 34px;
+	color: var(--ink);
 	text-align: center;
 }
 
+.card-grid li:nth-child(5n + 2) .card__image--placeholder {
+	background-color: #d3f4ea;
+}
+
+.card-grid li:nth-child(5n + 3) .card__image--placeholder {
+	background-color: #ffe9cc;
+}
+
+.card-grid li:nth-child(5n + 4) .card__image--placeholder {
+	background-color: #eadcff;
+}
+
+.card-grid li:nth-child(5n) .card__image--placeholder {
+	background-color: #ffdde2;
+}
+
 .card__image--placeholder span {
-	font-size: 2rem;
-	color: var(--amber);
+	font-size: 2.2rem;
+	background: var(--paper);
+	border: 3px solid var(--ink);
+	border-radius: 50%;
+	width: 74px;
+	height: 74px;
+	display: grid;
+	place-items: center;
+	margin: 0 auto;
 }
 
 .card__image--placeholder em {
 	font-style: normal;
-	font-size: 0.82rem;
-	letter-spacing: 0.14em;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
 	text-transform: uppercase;
+	background: var(--paper);
+	border: 2px solid var(--ink);
+	border-radius: 999px;
+	padding: 4px 12px;
 }
 
 .card__body {
@@ -513,11 +682,11 @@ h3 {
 	letter-spacing: 0.16em;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: var(--teal);
+	color: var(--blue-dark);
 }
 
 .card__title {
-	font-size: 1.32rem;
+	font-size: 1.42rem;
 	margin: 0;
 }
 
@@ -570,7 +739,7 @@ h3 {
 /* ---------- Credentials ---------- */
 
 .credentials {
-	background: var(--ink);
+	background: linear-gradient(135deg, #17235c 0%, #2f6dff 100%);
 	color: var(--paper);
 }
 
@@ -840,7 +1009,15 @@ h3 {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 900px) {
+/* The nav carries six long service names, so the phone number drops out before
+   the links do. */
+@media (max-width: 1400px) {
+	.site-nav__phone {
+		display: none;
+	}
+}
+
+@media (max-width: 1240px) {
 	.credentials__inner,
 	.contact__inner,
 	.site-footer__inner {
@@ -879,6 +1056,10 @@ h3 {
 	.site-header__inner {
 		position: relative;
 		flex-wrap: wrap;
+	}
+
+	.site-nav__phone {
+		display: inline;
 	}
 }
 
