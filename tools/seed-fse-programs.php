@@ -396,24 +396,29 @@ foreach ( $programs as $program ) {
 
 $group_meta = array(
 	'assembly-programs' => array(
-		'icon'  => '🎓',
-		'blurb' => 'STEM, character building, magic and reading assemblies for preschool through 8th grade.',
+		'icon'  => '🫧',
+		'nav'   => 'Assemblies',
+		'blurb' => 'Science, magic, kindness and reading shows for the whole school, K through 6.',
 	),
 	'science-nights'    => array(
 		'icon'  => '🔬',
-		'blurb' => 'Evening family science events, planetarium sessions and hands-on workshops.',
+		'nav'   => 'Science Nights',
+		'blurb' => 'Family science evenings, the star dome and hands-on workshops kids do themselves.',
 	),
 	'carnivals'         => array(
 		'icon'  => '🎪',
-		'blurb' => 'Face painting, foam, game booths and midway staffing for festivals and fundraisers.',
+		'nav'   => 'Carnivals',
+		'blurb' => 'Face painting, foam, balloon animals and game booths for festivals and fundraisers.',
 	),
 	'dances-proms'      => array(
 		'icon'  => '🪩',
-		'blurb' => 'DJ, lighting, game shows and strolling magic for middle school dances and proms.',
+		'nav'   => 'Dances',
+		'blurb' => 'Music, lights and game shows for upper-grade dances and end-of-year parties.',
 	),
 	'grad-nights'       => array(
 		'icon'  => '🎉',
-		'blurb' => 'Clean-comedy hypnosis and late-night entertainment for the senior class.',
+		'nav'   => 'Grad Nights',
+		'blurb' => 'Sixth-grade promotion and Grad Night entertainment, all clean comedy.',
 	),
 );
 
@@ -428,22 +433,24 @@ foreach ( $group_meta as $slug => $values ) {
 	update_term_meta( $term->term_id, '_group_icon', 'field_fse_group_icon' );
 	update_term_meta( $term->term_id, 'group_blurb', $values['blurb'] );
 	update_term_meta( $term->term_id, '_group_blurb', 'field_fse_group_blurb' );
+	update_term_meta( $term->term_id, 'group_nav_label', $values['nav'] );
+	update_term_meta( $term->term_id, '_group_nav_label', 'field_fse_group_nav_label' );
 }
 
 $front_id = (int) get_option( 'page_on_front' );
 
 if ( $front_id ) {
 	$home = array(
-		'hero_heading'             => 'Assemblies and family science nights California schools rebook',
-		'hero_intro'               => 'Full Spectrum Educational Services brings STEM, character-building, reading and magic programs to schools and libraries across Southern California — standards-aligned, self-contained and ready for your multipurpose room.',
+		'hero_heading'             => 'Bubbles, lightning and magic — the assembly your students talk about all week',
+		'hero_intro'               => 'Full Spectrum brings hands-on science, character-building and magic assemblies to K-6 schools and libraries across Southern California. Loud, funny, a little messy, and quietly packed with standards-aligned learning.',
 		'hero_cta_label'           => 'Check your date',
 		'quicknav_heading'         => 'What are you planning?',
-		'quicknav_intro'           => 'Jump straight to the programs for your event.',
-		'programs_heading'         => 'Programs',
-		'credentials_heading'      => 'Booked with confidence by California educators',
-		'credentials_body'         => "Every program is presented by a credentialed, live-scan-cleared performer carrying $1M general liability coverage, with a W-9 and certificate of insurance on file. Assemblies are standards-aligned and self-contained: we bring the sound, the lighting and every prop.",
+		'quicknav_intro'           => 'Tap the kind of event you are putting together and jump straight to the shows that fit.',
+		'programs_heading'         => 'Pick a show',
+		'credentials_heading'      => 'Safe hands, happy principals',
+		'credentials_body'         => "Every show is presented by a live-scan-cleared performer carrying $1M general liability coverage, with a W-9 and certificate of insurance ready for your district office. We arrive early, bring our own sound and props, and are packed up before the buses line up.",
 		'contact_heading'          => 'Check your date',
-		'contact_intro'            => 'Send your date and we will confirm availability and pricing within one business day. No deposit is needed to hold a tentative date.',
+		'contact_intro'            => 'Tell us your date and grade levels and we will confirm availability and pricing within one business day. No deposit needed to hold a tentative date.',
 		'contact_recipients'       => get_option( 'admin_email' ),
 		'contact_success'          => 'Thank you — your request is in. Sandee will reply within one business day.',
 		'footer_tagline'           => 'Creating Good Times And Great Memories Is What We Do Best',

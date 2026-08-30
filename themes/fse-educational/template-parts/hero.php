@@ -1,16 +1,16 @@
 <?php
 /**
  * Hero. The former "spectacle" tagline is deliberately gone: the headline now
- * speaks to school administrators, and "Educational" carries the branding.
+ * speaks to K-6 teachers and PTAs, and "Educational" carries the branding.
  *
  * @package fse
  */
 
 $fse_banner  = fse_home_field( 'hero_banner', 0 );
-$fse_heading = fse_home_field( 'hero_heading', __( 'Curriculum-Aligned Assemblies That Students Remember', 'fse' ) );
+$fse_heading = fse_home_field( 'hero_heading', __( 'Bubbles, Lightning And Magic — The Assembly Your Students Talk About All Week', 'fse' ) );
 $fse_intro   = fse_home_field(
 	'hero_intro',
-	__( 'Full Spectrum Educational Services brings NGSS-aligned STEM, literacy, character-building and conservation programs to California preschools, libraries and schools — presented by performers who have been doing this for three decades.', 'fse' )
+	__( 'Full Spectrum brings hands-on science, character-building and magic assemblies to K-6 schools and libraries across Southern California. Loud, funny, a little messy — and quietly full of standards-aligned learning.', 'fse' )
 );
 $fse_cta     = fse_home_field( 'hero_cta_label', __( 'Check Your Date', 'fse' ) );
 ?>
@@ -45,9 +45,9 @@ $fse_cta     = fse_home_field( 'hero_cta_label', __( 'Check Your Date', 'fse' ) 
 		</div>
 
 		<ul class="hero__trust">
-			<li><strong><?php esc_html_e( 'NGSS-aligned', 'fse' ); ?></strong><?php esc_html_e( 'Science & STEM assemblies', 'fse' ); ?></li>
-			<li><strong><?php esc_html_e( 'Fire Marshal certified', 'fse' ); ?></strong><?php esc_html_e( 'Portable planetarium domes', 'fse' ); ?></li>
-			<li><strong><?php esc_html_e( 'Preschool to high school', 'fse' ); ?></strong><?php esc_html_e( 'Libraries, districts & PTAs statewide', 'fse' ); ?></li>
+			<li><strong><?php esc_html_e( '45 minutes of wow', 'fse' ); ?></strong><?php esc_html_e( 'Sized for K-6 attention spans', 'fse' ); ?></li>
+			<li><strong><?php esc_html_e( 'Standards-aligned', 'fse' ); ?></strong><?php esc_html_e( 'Real science behind every laugh', 'fse' ); ?></li>
+			<li><strong><?php esc_html_e( 'We bring everything', 'fse' ); ?></strong><?php esc_html_e( 'Sound, props and clean-up included', 'fse' ); ?></li>
 		</ul>
 	</div>
 </section>
