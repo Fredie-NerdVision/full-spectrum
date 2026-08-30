@@ -546,6 +546,10 @@ h3 {
 	align-items: start;
 }
 
+.about__inner--no-media {
+	grid-template-columns: minmax(0, 75ch);
+}
+
 .about__image {
 	border-radius: var(--radius);
 	box-shadow: var(--shadow);

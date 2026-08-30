@@ -68,20 +68,25 @@ add_action(
 
 /**
  * Seed the five service groups so the quick-navigation buttons always resolve.
+ *
+ * Terms created implicitly (for example by an importer passing a slug) end up
+ * named after the slug, so a term whose name still matches its slug is renamed
+ * to the human label.
  */
-add_action(
-	'admin_init',
-	function () {
-		if ( get_option( 'fse_service_groups_seeded' ) ) {
-			return;
+function fse_seed_service_groups() {
+	foreach ( fse_service_groups() as $slug => $label ) {
+		$term = get_term_by( 'slug', $slug, FSE_PROGRAM_TAXONOMY );
+
+		if ( ! $term instanceof WP_Term ) {
+			wp_insert_term( $label, FSE_PROGRAM_TAXONOMY, array( 'slug' => $slug ) );
+			continue;
 		}
 
-		foreach ( fse_service_groups() as $slug => $label ) {
-			if ( ! term_exists( $slug, FSE_PROGRAM_TAXONOMY ) ) {
-				wp_insert_term( $label, FSE_PROGRAM_TAXONOMY, array( 'slug' => $slug ) );
-			}
+		if ( $term->name === $slug ) {
+			wp_update_term( $term->term_id, FSE_PROGRAM_TAXONOMY, array( 'name' => $label ) );
 		}
-
-		update_option( 'fse_service_groups_seeded', 1 );
 	}
-);
+}
+
+add_action( 'admin_init', 'fse_seed_service_groups' );
+add_action( 'after_switch_theme', 'fse_seed_service_groups' );

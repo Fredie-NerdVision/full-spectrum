@@ -16,6 +16,8 @@ if ( ! defined( 'WP_CLI' ) || ! WP_CLI ) {
 	exit( 1 );
 }
 
+fse_seed_service_groups();
+
 $programs = array(
 	array(
 		'slug'       => 'bubble-ology-101',
@@ -426,6 +428,38 @@ foreach ( $group_meta as $slug => $values ) {
 	update_term_meta( $term->term_id, '_group_icon', 'field_fse_group_icon' );
 	update_term_meta( $term->term_id, 'group_blurb', $values['blurb'] );
 	update_term_meta( $term->term_id, '_group_blurb', 'field_fse_group_blurb' );
+}
+
+$front_id = (int) get_option( 'page_on_front' );
+
+if ( $front_id ) {
+	$home = array(
+		'hero_heading'             => 'Assemblies and family science nights California schools rebook',
+		'hero_intro'               => 'Full Spectrum Educational Services brings STEM, character-building, reading and magic programs to schools and libraries across Southern California — standards-aligned, self-contained and ready for your multipurpose room.',
+		'hero_cta_label'           => 'Check your date',
+		'quicknav_heading'         => 'What are you planning?',
+		'quicknav_intro'           => 'Jump straight to the programs for your event.',
+		'programs_heading'         => 'Programs',
+		'credentials_heading'      => 'Booked with confidence by California educators',
+		'credentials_body'         => "Every program is presented by a credentialed, live-scan-cleared performer carrying $1M general liability coverage, with a W-9 and certificate of insurance on file. Assemblies are standards-aligned and self-contained: we bring the sound, the lighting and every prop.",
+		'contact_heading'          => 'Check your date',
+		'contact_intro'            => 'Send your date and we will confirm availability and pricing within one business day. No deposit is needed to hold a tentative date.',
+		'contact_recipients'       => get_option( 'admin_email' ),
+		'contact_success'          => 'Thank you — your request is in. Sandee will reply within one business day.',
+		'footer_tagline'           => 'Creating Good Times And Great Memories Is What We Do Best',
+		'footer_secondary_tagline' => 'Once A Customer, Always A Friend',
+		'footer_address'           => 'P.O. Box 596, Dana Point, CA 92629',
+		'footer_phone'             => '(949) 496-6244',
+	);
+
+	foreach ( $home as $key => $value ) {
+		update_post_meta( $front_id, $key, $value );
+		update_post_meta( $front_id, '_' . $key, 'field_fse_' . $key );
+	}
+
+	WP_CLI::log( 'Home page fields seeded.' );
+} else {
+	WP_CLI::warning( 'No static front page is set, so home-page fields were skipped.' );
 }
 
 WP_CLI::success( 'Program catalogue seeded.' );

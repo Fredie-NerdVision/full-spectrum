@@ -13,22 +13,22 @@ $mrh_credentials = mrh_lines( mrh_home_field( 'credentials_list', '' ) );
 ?>
 
 <section class="about" id="about">
-	<div class="wrap about__inner">
+	<div class="wrap about__inner <?php echo $mrh_image ? '' : 'about__inner--no-media'; ?>">
+		<?php if ( $mrh_image ) : ?>
 		<div class="about__media">
 			<?php
-			if ( $mrh_image ) {
-				echo wp_get_attachment_image(
-					$mrh_image,
-					'mrh-portrait',
-					false,
-					array(
-						'class' => 'about__image',
-						'alt'   => esc_attr__( 'Richard Rumble in the red suit with pocket watch', 'mrh' ),
-					)
-				);
-			}
+			echo wp_get_attachment_image(
+				$mrh_image,
+				'mrh-portrait',
+				false,
+				array(
+					'class' => 'about__image',
+					'alt'   => esc_attr__( 'Richard Rumble in the red suit with pocket watch', 'mrh' ),
+				)
+			);
 			?>
 		</div>
+		<?php endif; ?>
 
 		<div class="about__body">
 			<h2 class="section-heading"><?php echo esc_html( $mrh_heading ); ?></h2>
