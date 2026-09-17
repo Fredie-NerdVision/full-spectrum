@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mister Hypnosis — Richard Rumble, Comedy Hypnotist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* Mister Hypnosis — red-on-black refresh, condensed caps like the live site. */
+
+:root {
+	--ink: #0b0a0e;
+	--ink-soft: #141218;
+	--red: #e01f26;
+	--red-deep: #8f1017;
+	--cream: #faf7f2;
+	--muted: #b3abb4;
+	--line: rgba(255, 255, 255, 0.14);
+	--wrap: 1180px;
+	--radius: 18px;
+	--shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+	--font-display: "Fjalla One", "Arial Narrow", sans-serif;
+	--font-body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	background: var(--ink);
+	color: var(--cream);
+	font-family: var(--font-body);
+	font-size: 1.0625rem;
+	line-height: 1.65;
+	-webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--cream); }
+a:hover, a:focus { color: #ff5a5f; }
+
+h1, h2, h3 {
+	font-family: var(--font-display);
+	font-weight: 400;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	line-height: 1.05;
+	margin: 0 0 0.5em;
+}
+
+.wrap {
+	width: 100%;
+	max-width: var(--wrap);
+	margin: 0 auto;
+	padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+.screen-reader-text {
+	position: absolute !important;
+	width: 1px; height: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	white-space: nowrap;
+}
+
+:focus-visible { outline: 3px solid var(--red); outline-offset: 3px; }
+
+/* Buttons */
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	padding: 0.7rem 1.5rem;
+	border: 2px solid transparent;
+	border-radius: 999px;
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: 1rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	text-decoration: none;
+	white-space: nowrap;
+	cursor: pointer;
+	transition: transform 0.15s ease, background-color 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn--lg { padding: 0.95rem 2rem; font-size: 1.15rem; }
+
+.btn--red { background: var(--red); color: #fff; }
+.btn--red:hover, .btn--red:focus {
+	background: #ff343c;
+	color: #fff;
+	transform: translateY(-2px);
+}
+
+.btn--outline {
+	border-color: rgba(255, 255, 255, 0.35);
+	color: var(--cream);
+	background: rgba(255, 255, 255, 0.05);
+}
+.btn--outline:hover, .btn--outline:focus { border-color: var(--red); color: #ff5a5f; }
+
+.kicker {
+	margin: 0 0 0.9rem;
+	font-family: var(--font-display);
+	font-size: 0.95rem;
+	letter-spacing: 0.28em;
+	text-transform: uppercase;
+	color: var(--red);
+}
+
+.section-heading { font-size: clamp(2rem, 4.5vw, 3rem); }
+.section-intro { max-width: 60ch; color: var(--muted); }
+
+/* Header */
+
+.site-header {
+	position: sticky;
+	top: 0;
+	z-index: 50;
+	background: rgba(11, 10, 14, 0.85);
+	backdrop-filter: blur(10px);
+	border-bottom: 1px solid var(--line);
+	transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+.site-header.is-stuck { background: rgba(11, 10, 14, 0.97); border-bottom-color: var(--red); }
+
+.site-header__inner {
+	display: flex;
+	align-items: center;
+	gap: 1.5rem;
+	min-height: 74px;
+}
+
+.lockup {
+	display: inline-flex;
+	align-items: baseline;
+	gap: 0.4rem;
+	font-family: var(--font-display);
+	text-transform: uppercase;
+	text-decoration: none;
+	color: var(--cream);
+}
+.lockup__mister { font-size: 1rem; letter-spacing: 0.2em; color: var(--muted); }
+.lockup__hypnosis { font-size: 1.7rem; color: var(--red); }
+
+.nav-toggle {
+	margin-left: auto;
+	display: none;
+	width: 46px; height: 46px;
+	background: rgba(255, 255, 255, 0.06);
+	border: 1px solid var(--line);
+	border-radius: 12px;
+	cursor: pointer;
+}
+.nav-toggle__bars, .nav-toggle__bars::before, .nav-toggle__bars::after {
+	display: block;
+	width: 20px; height: 2px;
+	margin: 0 auto;
+	background: var(--cream);
+	position: relative;
+}
+.nav-toggle__bars::before, .nav-toggle__bars::after { content: ""; position: absolute; left: 0; }
+.nav-toggle__bars::before { top: -6px; }
+.nav-toggle__bars::after { top: 6px; }
+
+.site-nav {
+	margin-left: auto;
+	display: flex;
+	align-items: center;
+	gap: 1.75rem;
+}
+.site-nav__list {
+	display: flex;
+	align-items: center;
+	gap: 1.25rem;
+	margin: 0; padding: 0;
+	list-style: none;
+}
+.site-nav__list a {
+	color: var(--cream);
+	text-decoration: none;
+	font-family: var(--font-display);
+	font-size: 0.95rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	padding: 0.35rem 0;
+	border-bottom: 2px solid transparent;
+}
+.site-nav__list a:hover, .site-nav__list a:focus,
+.site-nav__list .is-active > a { color: var(--red); border-bottom-color: var(--red); }
+
+.site-nav__actions { display: flex; align-items: center; gap: 1rem; }
+.site-nav__phone {
+	font-family: var(--font-display);
+	font-size: 1.05rem;
+	letter-spacing: 0.04em;
+	text-decoration: none;
+	white-space: nowrap;
+	padding: 0.5rem 0.95rem;
+	border: 1.5px solid rgba(255, 255, 255, 0.4);
+	border-radius: 999px;
+	color: var(--cream);
+	transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+.site-nav__phone:hover, .site-nav__phone:focus-visible {
+	border-color: var(--red);
+	background: rgba(224, 31, 38, 0.18);
+	color: #fff;
+}
+
+/* Hero — full-bleed cover like the live site */
+
+.hero {
+	position: relative;
+	overflow: hidden;
+	min-height: min(88vh, 860px);
+	display: flex;
+	align-items: flex-end;
+	background: #1a0506;
+}
+.hero__bg { position: absolute; inset: 0; }
+.hero__bg-img {
+	width: 100%; height: 100%;
+	object-fit: cover;
+	object-position: 50% 32%;
+}
+.hero::before {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(105deg, rgba(143, 16, 23, 0.55) 0%, rgba(224, 31, 38, 0.28) 55%, rgba(11, 10, 14, 0.55) 100%);
+}
+.hero::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	background: linear-gradient(180deg, rgba(11, 10, 14, 0.35) 0%, transparent 35%, rgba(11, 10, 14, 0.88) 90%);
+}
+.hero__inner {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	padding-top: clamp(4rem, 10vw, 7rem);
+	padding-bottom: clamp(2.5rem, 6vw, 4rem);
+}
+.hero__kicker {
+	margin: 0 0 0.5rem;
+	font-family: var(--font-display);
+	font-size: clamp(1.1rem, 2vw, 1.4rem);
+	letter-spacing: 0.3em;
+	text-transform: uppercase;
+	color: var(--cream);
+}
+.hero__heading {
+	font-size: clamp(3rem, 9vw, 6.5rem);
+	margin-bottom: 0;
+	text-shadow: 0 4px 30px rgba(0, 0, 0, 0.45);
+}
+.hero__role {
+	margin: 0 0 1.5rem;
+	font-family: var(--font-display);
+	font-size: clamp(1.3rem, 3vw, 2.2rem);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	color: var(--cream);
+}
+.hero__intro {
+	max-width: 46ch;
+	margin-left: auto;
+	font-size: 1.15rem;
+	font-weight: 600;
+	text-align: right;
+	color: #fff;
+}
+.hero__actions {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-end;
+	gap: 0.85rem;
+	margin-top: 1.5rem;
+}
+
+@media (min-width: 900px) {
+	.hero { min-height: min(80vh, 740px); }
+	.hero__bg-img {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: min(46%, 660px);
+		height: 100%;
+		object-position: 50% 12%;
+		mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+		-webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 42%);
+	}
+	.hero__content { max-width: 56%; }
+	.hero__intro { margin-left: 0; text-align: left; }
+	.hero__actions { justify-content: flex-start; }
+}
+
+/* Client marquee */
+
+.clients {
+	padding: 1.75rem 0;
+	border-top: 1px solid var(--line);
+	border-bottom: 1px solid var(--line);
+	background: var(--ink-soft);
+}
+.clients__heading {
+	font-size: 0.95rem;
+	letter-spacing: 0.22em;
+	text-transform: uppercase;
+	color: var(--muted);
+	text-align: center;
+	font-family: var(--font-display);
+	font-weight: 400;
+	margin-bottom: 1.25rem;
+}
+.marquee {
+	display: flex;
+	gap: 2.5rem;
+	overflow: hidden;
+	mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+	-webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.marquee__track {
+	display: flex;
+	flex: 0 0 auto;
+	align-items: center;
+	gap: 2.5rem;
+	margin: 0;
+	padding: 0 1.25rem;
+	list-style: none;
+	animation: marquee 32s linear infinite;
+}
+.marquee:hover .marquee__track, .marquee:focus-within .marquee__track { animation-play-state: paused; }
+.marquee__logo {
+	max-height: 46px;
+	width: auto;
+	border-radius: 6px;
+}
+.marquee__logo--card {
+	background: #fff;
+	padding: 0.35rem 0.7rem;
+}
+@keyframes marquee {
+	from { transform: translateX(0); }
+	to { transform: translateX(calc(-100% - 2.5rem)); }
+}
+
+/* Audience sections */
+
+.audiences { padding: clamp(3rem, 8vw, 5.5rem) 0 0; }
+.audience { padding: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.audience--alt { background: var(--ink-soft); }
+.audience__inner {
+	display: grid;
+	grid-template-columns: 1.05fr 0.95fr;
+	gap: clamp(2rem, 5vw, 3.5rem);
+	align-items: center;
+}
+.audience--alt .audience__inner { grid-template-areas: "media body"; }
+.audience--alt .audience__body { grid-area: body; }
+.audience--alt .audience__media { grid-area: media; }
+.audience__heading { font-size: clamp(1.9rem, 4vw, 2.6rem); }
+.audience__tagline {
+	margin: -0.4em 0 1rem;
+	font-size: 1.15rem;
+	color: #ff8a8d;
+}
+.audience__content { color: #d9d4dc; }
+.audience__image {
+	border-radius: var(--radius);
+	box-shadow: var(--shadow);
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+.audience__actions { margin-top: 1.5rem; }
+
+.ticks { margin: 1.25rem 0; padding: 0; list-style: none; display: grid; gap: 0.6rem; }
+.ticks li { position: relative; padding-left: 1.9rem; }
+.ticks li::before {
+	content: "";
+	position: absolute;
+	left: 0; top: 0.55em;
+	width: 0.75rem; height: 0.4rem;
+	border-left: 2px solid var(--red);
+	border-bottom: 2px solid var(--red);
+	transform: rotate(-45deg);
+}
+
+.quote {
+	margin: 1.75rem 0 0;
+	padding: 1.25rem 1.5rem;
+	background: rgba(224, 31, 38, 0.1);
+	border-left: 4px solid var(--red);
+	border-radius: 0 var(--radius) var(--radius) 0;
+}
+.quote p { margin: 0 0 0.6rem; font-size: 1.05rem; }
+.quote footer { font-size: 0.9rem; color: var(--muted); }
+.quote footer span { display: block; }
+
+/* About */
+
+.about {
+	padding: clamp(3rem, 8vw, 5.5rem) 0;
+	background: linear-gradient(180deg, var(--ink) 0%, #1a0708 100%);
+}
+.about__inner {
+	display: grid;
+	grid-template-columns: 0.85fr 1.15fr;
+	gap: clamp(2rem, 5vw, 3.5rem);
+	align-items: start;
+}
+.about__image { border-radius: var(--radius); box-shadow: var(--shadow); }
+.about__credentials-heading {
+	margin-top: 2rem;
+	font-family: var(--font-display);
+	font-size: 1.1rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: var(--red);
+}
+.credentials {
+	display: flex; flex-wrap: wrap; gap: 0.6rem;
+	margin: 0; padding: 0; list-style: none;
+}
+.credentials li {
+	padding: 0.45rem 0.95rem;
+	background: rgba(255, 255, 255, 0.07);
+	border: 1px solid var(--line);
+	border-radius: 999px;
+	font-size: 0.9rem;
+}
+
+/* Testimonials & gallery */
+
+.testimonials, .gallery { padding: clamp(3rem, 8vw, 5.5rem) 0; }
+.testimonials__grid, .gallery__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.5rem;
+	margin: 0; padding: 0;
+	list-style: none;
+}
+.testimonial {
+	margin: 0;
+	padding: 1.5rem;
+	background: var(--ink-soft);
+	border: 1px solid var(--line);
+	border-top: 3px solid var(--red);
+	border-radius: var(--radius);
+	transition: transform 0.15s ease, border-color 0.15s ease;
+}
+.testimonial:hover { transform: translateY(-3px); }
+.testimonial blockquote { margin: 0 0 1rem; font-size: 1.02rem; }
+.testimonial figcaption { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.95rem; }
+.testimonial figcaption span { display: block; font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-size: 0.85rem; color: var(--muted); }
+
+.gallery__item figure { margin: 0; }
+.gallery__item img {
+	border-radius: var(--radius);
+	width: 100%;
+	aspect-ratio: 4 / 3;
+	object-fit: cover;
+}
+.gallery__item figcaption { margin-top: 0.6rem; font-size: 0.9rem; color: var(--muted); }
+
+/* Booking */
+
+.booking {
+	padding: clamp(3rem, 8vw, 5.5rem) 0;
+	background: linear-gradient(160deg, #26090b 0%, var(--ink) 70%);
+	border-top: 1px solid var(--line);
+}
+.booking__inner {
+	display: grid;
+	grid-template-columns: 0.9fr 1.1fr;
+	gap: clamp(2rem, 5vw, 3.5rem);
+	align-items: start;
+}
+.booking__phone { font-size: 1.15rem; }
+.booking__phone a {
+	font-family: var(--font-display);
+	font-size: 1.5rem;
+	letter-spacing: 0.05em;
+	color: var(--red);
+	text-decoration: underline;
+	text-decoration-color: rgba(224, 31, 38, 0.45);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 5px;
+	transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+.booking__phone a:hover, .booking__phone a:focus-visible {
+	color: #ff5a5f;
+	text-decoration-color: #ff5a5f;
+}
+
+.form {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.1rem;
+	padding: clamp(1.25rem, 3vw, 2rem);
+	background: rgba(255, 255, 255, 0.05);
+	border: 1px solid var(--line);
+	border-radius: var(--radius);
+}
+.form__row { display: grid; gap: 0.35rem; margin: 0; }
+.form__row--textarea, .form__actions, .form__honeypot { grid-column: 1 / -1; }
+.form label {
+	font-family: var(--font-display);
+	font-weight: 400;
+	font-size: 0.95rem;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+.form__required { color: var(--red); }
+.form__optional { font-family: var(--font-body); text-transform: none; letter-spacing: 0; font-size: 0.85rem; color: var(--muted); }
+.form__hint { font-size: 0.85rem; color: var(--muted); }
+.form input, .form select, .form textarea {
+	width: 100%;
+	padding: 0.7rem 0.85rem;
+	font: inherit;
+	color: var(--ink);
+	background: #fff;
+	border: 2px solid #3a333f;
+	border-radius: 10px;
+}
+.form input:focus, .form select:focus, .form textarea:focus {
+	border-color: var(--red);
+	outline: 3px solid rgba(224, 31, 38, 0.5);
+	outline-offset: 1px;
+}
+.form__honeypot { position: absolute !important; left: -9999px; }
+
+/* Footer — signature red band, upgraded to a real footer */
+
+.site-footer {
+	background: var(--red);
+	color: #fff;
+	border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+.site-footer__inner {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 2rem;
+	padding: clamp(2.5rem, 6vw, 4rem) 0 1rem;
+}
+.site-footer .lockup__mister { color: rgba(255, 255, 255, 0.75); }
+.site-footer .lockup__hypnosis { color: #fff; }
+.site-footer a { color: #fff; }
+.site-footer a[href^="tel:"], .site-footer a[href^="mailto:"] { text-decoration: underline; text-underline-offset: 3px; }
+.site-footer a:hover, .site-footer a:focus { color: #ffd9db; }
+.site-footer__heading {
+	font-family: var(--font-display);
+	font-size: 0.95rem;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+	color: rgba(255, 255, 255, 0.75);
+}
+.site-footer__tagline { color: rgba(255, 255, 255, 0.85); max-width: 34ch; }
+.site-footer__menu, .site-footer__social {
+	margin: 0; padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 0.5rem;
+}
+.site-footer__social {
+	grid-auto-flow: column;
+	justify-content: start;
+	gap: 1.25rem;
+	margin-top: 0.75rem;
+}
+.site-footer__legal {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 0.5rem;
+	padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 1.5rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.2);
+	font-size: 0.85rem;
+	color: rgba(255, 255, 255, 0.8);
+}
+.site-footer__legal p { margin: 0; }
+.footer__brand-link {
+	position: relative;
+	font-family: var(--font-display);
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	text-decoration: none;
+	background: linear-gradient(100deg, #fff 0%, #ffd166 35%, #ff9e3d 55%, #fff 80%);
+	background-size: 220% 100%;
+	background-position: 0 0;
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: background-position 0.6s ease;
+}
+.footer__brand-link::after {
+	content: "";
+	position: absolute;
+	left: 0; right: 0; bottom: -3px;
+	height: 2px;
+	background: linear-gradient(90deg, #ffd166, #ff9e3d);
+	transform: scaleX(0);
+	transform-origin: left;
+	transition: transform 0.35s ease;
+}
+.footer__brand-link:hover, .footer__brand-link:focus-visible { background-position: 100% 0; }
+.footer__brand-link:hover::after, .footer__brand-link:focus-visible::after { transform: scaleX(1); }
+
+/* Breakpoints */
+
+@media (max-width: 900px) {
+	.nav-toggle { display: block; }
+	.site-nav {
+		position: absolute;
+		top: 100%; left: 0; right: 0;
+		display: none;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 1rem;
+		padding: 1.25rem clamp(1rem, 4vw, 2.5rem) 1.75rem;
+		background: rgba(11, 10, 14, 0.98);
+		border-bottom: 1px solid var(--line);
+	}
+	.site-nav.is-open { display: flex; }
+	.site-nav__list { flex-direction: column; align-items: stretch; gap: 0.25rem; }
+	.site-nav__list a { display: block; padding: 0.6rem 0; border-bottom: 1px solid var(--line); }
+	.site-nav__actions { flex-direction: column; align-items: stretch; text-align: center; }
+	.hero__intro { margin-left: 0; text-align: left; }
+	.hero__actions { justify-content: flex-start; }
+	.hero__inner, .audience__inner, .about__inner, .booking__inner { grid-template-columns: 1fr; }
+	.audience--alt .audience__inner { grid-template-areas: none; }
+	.audience--alt .audience__body, .audience--alt .audience__media { grid-area: auto; }
+	.about__media { max-width: 420px; }
+}
+
+@media (max-width: 600px) {
+	.form { grid-template-columns: 1fr; }
+	.hero__actions .btn { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.marquee__track { animation: none; }
+	.btn { transition: none; }
+	.btn--red:hover, .btn--red:focus { transform: none; }
+}
+</style>
+</head>
+<body>
+
+<a class="skip-link screen-reader-text" href="#main">Skip to content</a>
+
+<header class="site-header" id="site-header">
+	<div class="wrap site-header__inner">
+		<a class="lockup" href="#top" rel="home">
+			<span class="lockup__mister">Mister</span>
+			<strong class="lockup__hypnosis">Hypnosis</strong>
+		</a>
+
+		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+			<span class="nav-toggle__bars" aria-hidden="true"></span>
+			<span class="screen-reader-text">Menu</span>
+		</button>
+
+		<nav class="site-nav" id="primary-nav" aria-label="Primary">
+			<ul class="site-nav__list">
+				<li><a href="#shows-grad-nights-proms">Grad Nights</a></li>
+				<li><a href="#shows-corporate-events">Corporate</a></li>
+				<li><a href="#shows-college-events">College</a></li>
+				<li><a href="#about">About Richard</a></li>
+				<li><a href="#gallery">Gallery</a></li>
+			</ul>
+			<div class="site-nav__actions">
+				<a class="site-nav__phone" href="tel:+17143220207">(714) 322-0207</a>
+				<a class="btn btn--red" href="#booking">Book Us</a>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<main id="main" class="site-main">
+
+<section class="hero" id="top">
+	<div class="hero__bg"><img class="hero__bg-img" src="../assets/house-of-blues-1.jpg" alt=""></div>
+	<div class="wrap hero__inner">
+		<div class="hero__content">
+			<p class="hero__kicker">Mister Hypnosis</p>
+			<h1 class="hero__heading">Richard Rumble</h1>
+			<p class="hero__role">Comedy Hypnotist</p>
+			<div class="hero__intro">
+				<p>The world&rsquo;s most entertaining comedy hypnotist will have you laughing non-stop and craving for more.</p>
+			</div>
+			<p class="hero__actions">
+				<a class="btn btn--red btn--lg" href="#booking">Book Mister Hypnosis</a>
+				<a class="btn btn--outline btn--lg" href="#shows">See The Shows</a>
+			</p>
+		</div>
+	</div>
+</section>
+
+<section class="clients" aria-label="Past clients">
+	<div class="wrap">
+		<h2 class="clients__heading">Trusted by</h2>
+	</div>
+	<div class="marquee">
+		<ul class="marquee__track">
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/disney.png" alt="Disney"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/dave-busters.jpg" alt="Dave &amp; Buster&rsquo;s"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/pfizer.png" alt="Pfizer"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/logo-ford-vector-transparent-png-1.png" alt="Ford"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/png-transparent-club-med-hd-logo-thumbnail-1.png" alt="Club Med"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/uci_athletics_monogram_wbg_800x800-1-300x300-1.png" alt="UC Irvine Athletics"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/hornblower.png" alt="Hornblower"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/kaiser.png" alt="Kaiser Permanente"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/el-torito.png" alt="El Torito"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/cada.png" alt="CADA"></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/mammoth-lakes.jpg" alt="Mammoth Lakes"></li>
+		</ul>
+		<ul class="marquee__track" aria-hidden="true">
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/disney.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/dave-busters.jpg" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/pfizer.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/logo-ford-vector-transparent-png-1.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/png-transparent-club-med-hd-logo-thumbnail-1.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/uci_athletics_monogram_wbg_800x800-1-300x300-1.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/hornblower.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/kaiser.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/el-torito.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/cada.png" alt=""></li>
+			<li class="marquee__item"><img class="marquee__logo marquee__logo--card" src="../assets/mammoth-lakes.jpg" alt=""></li>
+		</ul>
+	</div>
+</section>
+
+<section class="audiences" id="shows">
+	<div class="wrap">
+		<h2 class="section-heading">A Different Show For Every Room</h2>
+	</div>
+
+	<article class="audience" id="shows-grad-nights-proms">
+		<div class="wrap audience__inner">
+			<div class="audience__body">
+				<p class="kicker">Grad Night &amp; Prom</p>
+				<h3 class="audience__heading">High School Grad Nights &amp; Proms</h3>
+				<p class="audience__tagline">The all-night entertainment that keeps the class in one room.</p>
+				<div class="audience__content">
+					<p>A school-sanctioned, squeaky-clean comedy hypnosis show built for graduating classes. Volunteers come from the audience, the laughs come from the situations rather than the language, and every routine is chosen so that no student is embarrassed in front of their class.</p>
+				</div>
+				<ul class="ticks">
+					<li>100% clean — approved by activities directors and PTA boards</li>
+					<li>Runs 45–90 minutes, or repeated sets across an all-night event</li>
+					<li>Fully self-contained sound and lighting</li>
+					<li>Works in gyms, theatres, cafeterias and cruise or park venues</li>
+					<li>References from Orange County and Los Angeles districts on request</li>
+				</ul>
+				<blockquote class="quote">
+					<p>Richard had 600 seniors laughing for an hour and not one parent complaint. He is the only hypnotist we book for Grad Night.</p>
+					<footer><strong>Activities Office, Dana Hills High School</strong><span>Activities Director</span></footer>
+				</blockquote>
+				<p class="audience__actions"><a class="btn btn--red" href="#booking">Check your Grad Night date</a></p>
+			</div>
+			<div class="audience__media">
+				<img class="audience__image" src="../assets/purple-jacket-crop.jpg" alt="Richard Rumble hypnotising a row of student volunteers on stage">
+			</div>
+		</div>
+	</article>
+
+	<article class="audience audience--alt" id="shows-corporate-events">
+		<div class="wrap audience__inner">
+			<div class="audience__body">
+				<p class="kicker">Corporate &amp; Association</p>
+				<h3 class="audience__heading">Corporate Functions</h3>
+				<p class="audience__tagline">Your team becomes the entertainment — safely.</p>
+				<div class="audience__content">
+					<p>Holiday parties, sales kick-offs, awards nights and client appreciation events. Richard tailors the show around your team, folds in your company names and in-jokes, and keeps every routine safe for a room that includes executives, spouses and clients.</p>
+				</div>
+				<ul class="ticks">
+					<li>Customised to your company, products and people</li>
+					<li>Strolling close-up magic available during cocktails</li>
+					<li>No alcohol-dependent or off-colour material</li>
+					<li>Stage, ballroom or outdoor tent</li>
+					<li>Full liability insurance and W-9 on file</li>
+				</ul>
+				<blockquote class="quote">
+					<p>He worked our product names into the routines and our VP ended up on stage. Best closing night we have had.</p>
+					<footer><strong>Regional Sales Kick-Off</strong><span>Event Manager, Fortune 500 technology firm</span></footer>
+				</blockquote>
+				<p class="audience__actions"><a class="btn btn--red" href="#booking">Request a corporate quote</a></p>
+			</div>
+			<div class="audience__media">
+				<img class="audience__image" src="../assets/prom-viewing-2021.jpeg" alt="A packed ballroom audience at a Mister Hypnosis event">
+			</div>
+		</div>
+	</article>
+
+	<article class="audience" id="shows-college-events">
+		<div class="wrap audience__inner">
+			<div class="audience__body">
+				<p class="kicker">Colleges &amp; Universities</p>
+				<h3 class="audience__heading">College Events</h3>
+				<p class="audience__tagline">Late-night programming that actually draws a crowd.</p>
+				<div class="audience__content">
+					<p>Welcome week, family weekend, late-night programming and Greek life events. A hypnosis show fills a student union with a crowd that stays, participates and posts about it — and the show scales from a 100-seat lounge to a packed campus auditorium.</p>
+				</div>
+				<ul class="ticks">
+					<li>Ideal for welcome week, family weekend and late-night series</li>
+					<li>Student volunteers drive the whole show</li>
+					<li>Social-media friendly moments built in</li>
+					<li>Travels nationally; block booking discounts for consortiums</li>
+					<li>NACA-style contracting and tech rider provided</li>
+				</ul>
+				<p class="audience__actions"><a class="btn btn--red" href="#booking">Check campus availability</a></p>
+			</div>
+			<div class="audience__media">
+				<img class="audience__image" src="../assets/usc-1.jpg" alt="Richard Rumble at a USC campus event">
+			</div>
+		</div>
+	</article>
+</section>
+
+<section class="about" id="about">
+	<div class="wrap about__inner">
+		<div class="about__media">
+			<img class="about__image" src="../assets/silver-coat.jpg" alt="Richard Rumble in his silver sequin jacket">
+		</div>
+		<div class="about__body">
+			<p class="kicker">About Richard</p>
+			<h2 class="section-heading">30 Years Making Volunteers The Stars</h2>
+			<p>Hypnotist Richard Rumble is world-renowned for his original clean-comedy hypnosis show where the whole audience participates. He is an NLP master practitioner, registered with the American Board of Hypnotherapy.</p>
+			<p>As Mister Hypnosis, Richard provides superb entertainment for corporate events, private affairs, theaters, comedy clubs, county fairs and more.</p>
+			<h3 class="about__credentials-heading">Credentials</h3>
+			<ul class="credentials">
+				<li>The Magic Castle, Hollywood</li>
+				<li>National Guild of Hypnotists</li>
+				<li>American Board of Hypnotherapy</li>
+				<li>Society of Applied Hypnosis</li>
+				<li>International Brotherhood of Magicians</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+<section class="testimonials" id="testimonials">
+	<div class="wrap">
+		<p class="kicker">Word Of Mouth</p>
+		<h2 class="section-heading">Booked Again And Again</h2>
+		<ul class="testimonials__grid">
+			<li>
+				<figure class="testimonial">
+					<blockquote>&ldquo;Richard had 600 seniors laughing for an hour and not one parent complaint. He is the only hypnotist we book for Grad Night.&rdquo;</blockquote>
+					<figcaption>Activities Office, Dana Hills High School<span>Activities Director</span></figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure class="testimonial">
+					<blockquote>&ldquo;He worked our product names into the routines and our VP ended up on stage. Best closing night we have had.&rdquo;</blockquote>
+					<figcaption>Regional Sales Kick-Off<span>Event Manager, Fortune 500 technology firm</span></figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure class="testimonial">
+					<blockquote>&ldquo;We had a line out the door twenty minutes before showtime and students still talk about it in the spring.&rdquo;</blockquote>
+					<figcaption>Student Programming Board<span>Late-Night Programming Chair</span></figcaption>
+				</figure>
+			</li>
+		</ul>
+	</div>
+</section>
+
+<section class="gallery" id="gallery">
+	<div class="wrap">
+		<p class="kicker">Gallery</p>
+		<h2 class="section-heading">On Stage</h2>
+		<ul class="gallery__grid">
+			<li class="gallery__item"><figure><img src="../assets/img_1681.jpg" alt="Richard Rumble on stage at the House of Blues marquee"><figcaption>House of Blues</figcaption></figure></li>
+			<li class="gallery__item"><figure><img src="../assets/wedding-magic-show.jpg" alt="Strolling magic for students at prom"><figcaption>Strolling magic at prom</figcaption></figure></li>
+			<li class="gallery__item"><figure><img src="../assets/prom-2021.jpeg" alt="Richard Rumble at a 2021 prom"><figcaption>Prom 2021</figcaption></figure></li>
+			<li class="gallery__item"><figure><img src="../assets/close-up-red-coat.jpg" alt="Close-up of Richard Rumble in the red coat with a microphone"><figcaption>The signature red coat</figcaption></figure></li>
+			<li class="gallery__item"><figure><img src="../assets/stage-setup.jpg" alt="Richard Rumble setting up the stage before a show"><figcaption>Before the doors open</figcaption></figure></li>
+		</ul>
+	</div>
+</section>
+
+<section class="booking" id="booking">
+	<div class="wrap booking__inner">
+		<div class="booking__intro">
+			<h2 class="section-heading">Check Your Date</h2>
+			<p>Tell us about your event and Sandee or Richard will reply within one business day.</p>
+			<p class="booking__phone">Prefer to talk it through?<br><a href="tel:+17143220207">(714) 322-0207</a></p>
+		</div>
+		<div class="booking__form-wrap">
+			<form class="form" method="post" action="#booking">
+				<p class="form__row"><label for="mrh-name">Name <span class="form__required" aria-hidden="true">*</span></label><input type="text" id="mrh-name" name="mrh_name" required></p>
+				<p class="form__row"><label for="mrh-email">Email <span class="form__required" aria-hidden="true">*</span></label><input type="email" id="mrh-email" name="mrh_email" required></p>
+				<p class="form__row"><label for="mrh-phone">Phone <span class="form__optional">(optional)</span></label><input type="tel" id="mrh-phone" name="mrh_phone"></p>
+				<p class="form__row"><label for="mrh-event-type">Event type <span class="form__required" aria-hidden="true">*</span></label>
+					<select id="mrh-event-type" name="mrh_event_type" required>
+						<option value="">Please choose&hellip;</option>
+						<option>Corporate</option><option>College</option><option>Prom / Grad Night</option><option>Magic</option><option>Other</option>
+					</select>
+				</p>
+				<p class="form__row form__row--textarea"><label for="mrh-message">Tell us a little about your event. <span class="form__optional">(optional)</span></label><textarea id="mrh-message" name="mrh_message" rows="5"></textarea></p>
+				<p class="form__row"><label for="mrh-date">Event date <span class="form__optional">(optional)</span></label><input type="text" id="mrh-date" name="mrh_date" placeholder="MM/DD/YYYY"></p>
+				<p class="form__actions"><button class="btn btn--red btn--lg" type="submit">Send booking enquiry</button></p>
+			</form>
+		</div>
+	</div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+	<div class="wrap site-footer__inner">
+		<div>
+			<span class="lockup lockup--footer">
+				<span class="lockup__mister">Mister</span>
+				<strong class="lockup__hypnosis">Hypnosis</strong>
+			</span>
+			<p class="site-footer__tagline">Richard Rumble — clean-comedy stage hypnosis and magic.</p>
+		</div>
+		<div>
+			<h2 class="site-footer__heading">Booking</h2>
+			<p>
+				<a href="tel:+17143220207">(714) 322-0207</a><br>
+				<a href="mailto:richard@misterhypnosis.com">richard@misterhypnosis.com</a><br>
+				P.O. Box 596, Dana Point, CA 92629
+			</p>
+			<ul class="site-footer__social">
+				<li><a href="https://www.facebook.com/MisterHypnosis1/">Facebook</a></li>
+				<li><a href="https://www.instagram.com/hypno2u/">Instagram</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2 class="site-footer__heading">Also From Full Spectrum</h2>
+			<ul class="site-footer__menu">
+				<li><a href="https://www.fullspectrument.com">Corporate &amp; private entertainment</a></li>
+				<li><a href="https://full-spectrum.org">School &amp; library assemblies</a></li>
+				<li><a href="https://dreamshapers.org">Dream Shapers performing arts</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="site-footer__legal">
+		<p>&copy; 2026 Mister Hypnosis. All rights reserved.</p>
+		<p>Designed by <a class="footer__brand-link" href="https://nerdvision.tech">NerdVision</a></p>
+	</div>
+</footer>
+
+<script>
+// Same behavior as the theme: sticky state + mobile nav.
+var header = document.getElementById('site-header');
+addEventListener('scroll', function () { header.classList.toggle('is-stuck', scrollY > 8); }, { passive: true });
+var toggle = document.querySelector('.nav-toggle'), nav = document.getElementById('primary-nav');
+toggle.addEventListener('click', function () {
+	var open = nav.classList.toggle('is-open');
+	toggle.setAttribute('aria-expanded', open);
+});
+</script>
+</body>
+</html>
