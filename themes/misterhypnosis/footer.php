@@ -5,7 +5,7 @@
  * @package mrh
  */
 
-$mrh_phone     = mrh_home_field( 'footer_phone', '(949) 496-6244' );
+$mrh_phone     = mrh_home_field( 'footer_phone', '(714) 322-0207' );
 $mrh_email     = mrh_home_field( 'footer_email', 'richard@misterhypnosis.com' );
 $mrh_address   = mrh_home_field( 'footer_address', 'P.O. Box 596, Dana Point, CA 92629' );
 $mrh_facebook  = mrh_home_field( 'footer_facebook', '' );
@@ -64,7 +64,15 @@ $mrh_instagram = mrh_home_field( 'footer_instagram', '' );
 			);
 			?>
 		</p>
-		<p><?php esc_html_e( 'Designed by NerdVision', 'mrh' ); ?></p>
+		<p>
+			<?php
+			printf(
+				/* translators: 1: NerdVision site URL, 2: NerdVision name. */
+				esc_html__( 'Designed by %1$s', 'mrh' ),
+				'<a class="footer__brand-link" href="https://nerdvision.tech">' . esc_html__( 'NerdVision', 'mrh' ) . '</a>'
+			);
+			?>
+		</p>
 	</div>
 </footer>
 
