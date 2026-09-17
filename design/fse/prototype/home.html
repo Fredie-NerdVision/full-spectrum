@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Full Spectrum Educational Services — School Assemblies &amp; Science Nights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17235c; --ink-soft:#4a558c;
+  --violet:#7a2ee0; --violet-deep:#4f169e; --indigo:#1b2a6b;
+  --blue:#2f6dff; --sky:#59c2ff; --teal:#16c79a; --amber:#ffc528; --coral:#ff5d73;
+  --paper:#fffdf7; --card:#ffffff; --line:#e6e2f5;
+  --display:"Fraunces",Georgia,serif; --body:"Inter",-apple-system,sans-serif;
+  --wrap:1200px; --radius:22px; --radius-sm:13px;
+  --sticker:0 5px 0 var(--ink); --sticker-lg:0 8px 0 var(--ink);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--violet-deep)}
+.wrap{width:min(100% - 2.5rem,var(--wrap));margin-inline:auto}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0 0 .5rem;letter-spacing:-.01em}
+.section-heading{font-size:clamp(1.9rem,4vw,2.8rem);text-transform:uppercase;font-weight:900;letter-spacing:.01em}
+.section-intro{color:var(--ink-soft);max-width:58ch;font-size:1.05rem}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.04em;font-size:.95rem;
+  padding:.85rem 1.5rem;border-radius:999px;border:2.5px solid var(--ink);background:var(--card);color:var(--ink);text-decoration:none;white-space:nowrap;
+  box-shadow:0 4px 0 var(--ink);transition:transform .12s ease,box-shadow .12s ease,background .15s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 var(--ink)}
+.btn--accent{background:var(--amber)}
+.btn--violet{background:var(--violet);color:#fff;border-color:var(--ink)}
+.btn--ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.75);box-shadow:none}
+.btn--ghost:hover{background:rgba(255,255,255,.14);box-shadow:none;transform:translateY(-2px)}
+.btn--lg{padding:1rem 1.8rem;font-size:1.05rem}
+
+/* header */
+.site-header{position:sticky;top:0;z-index:50;background:rgba(255,253,247,.94);backdrop-filter:blur(10px);border-bottom:2.5px solid var(--ink)}
+.site-header__inner{display:flex;align-items:center;gap:1.25rem;padding:.7rem 0}
+.lockup{display:grid;text-decoration:none;color:var(--ink);line-height:1;font-family:var(--display);flex:0 0 auto}
+.lockup__top{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.lockup__emphasis{font-size:1.7rem;font-weight:900;text-transform:uppercase;color:var(--violet);letter-spacing:.02em}
+.lockup__bottom{font-size:.78rem;letter-spacing:.3em;text-transform:uppercase}
+.site-nav{display:flex;align-items:center;gap:1.25rem;margin-left:auto}
+.site-nav__list{display:flex;gap:1.1rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+.site-nav__list a{font-family:var(--display);font-weight:600;text-transform:uppercase;font-size:.82rem;letter-spacing:.06em;text-decoration:none;color:var(--ink);padding:.3rem 0;border-bottom:2.5px solid transparent}
+.site-nav__list a:hover{border-bottom-color:var(--violet);color:var(--violet-deep)}
+.site-nav__actions{display:flex;align-items:center;gap:.6rem}
+.site-nav__phone{font-family:var(--display);font-weight:700;font-size:.95rem;text-decoration:none;color:var(--ink);
+  padding:.5rem 1rem;border:2.5px solid var(--ink);border-radius:999px;background:var(--sky);box-shadow:0 4px 0 var(--ink);white-space:nowrap;transition:transform .12s,box-shadow .12s}
+.site-nav__phone:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--ink)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--indigo) 0%,var(--violet-deep) 48%,var(--violet) 100%);color:#fff;padding:clamp(3rem,7vw,5.5rem) 0 clamp(3.5rem,8vw,6rem)}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.5) 1.6px,transparent 1.7px);background-size:26px 26px;opacity:.16}
+.hero::after{content:"";position:absolute;left:-8%;bottom:-55%;width:62%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,197,40,.28),transparent 68%)}
+.hero__inner{position:relative;display:grid;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+.hero__kicker{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--display);text-transform:uppercase;letter-spacing:.16em;font-size:.78rem;font-weight:700;
+  background:var(--amber);color:var(--ink);border:2.5px solid var(--ink);border-radius:999px;padding:.4rem 1rem;box-shadow:0 4px 0 rgba(0,0,0,.35);margin-bottom:1.1rem}
+.hero__heading{font-size:clamp(2.1rem,4.6vw,3.35rem);font-weight:900;text-transform:uppercase;text-wrap:balance;text-shadow:0 3px 0 rgba(0,0,0,.18);max-width:24ch}
+.hero__heading em{font-style:normal;color:var(--amber)}
+.hero__intro{font-size:clamp(1.02rem,1.5vw,1.2rem);max-width:46ch;color:rgba(255,255,255,.93)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:.85rem;margin:1.6rem 0 0}
+.hero__figure{position:relative;margin:0}
+.hero__figure img{border:3px solid var(--ink);border-radius:var(--radius);box-shadow:0 10px 0 var(--ink),0 26px 50px rgba(0,0,0,.35);transform:rotate(-1.6deg);aspect-ratio:4/3;object-fit:cover;object-position:50% 30%}
+.hero__badge{position:absolute;right:-.6rem;bottom:-1.4rem;background:var(--coral);color:#fff;border:2.5px solid var(--ink);border-radius:var(--radius-sm);
+  box-shadow:var(--sticker);padding:.6rem .9rem;font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:.82rem;letter-spacing:.05em;transform:rotate(3deg);line-height:1.25;text-align:center}
+.hero__trust{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:.9rem;list-style:none;margin:2.4rem 0 0;padding:0;position:relative}
+.hero__trust li{background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.28);border-radius:var(--radius-sm);padding:.85rem 1rem;font-size:.92rem;color:rgba(255,255,255,.88)}
+.hero__trust strong{display:block;font-family:var(--display);font-size:1.05rem;text-transform:uppercase;letter-spacing:.03em;color:#fff}
+@media(min-width:960px){.hero__inner{grid-template-columns:1.05fr .95fr}.hero__trust{grid-column:1/-1}}
+
+/* quick nav */
+.quick-nav{padding:clamp(3rem,6vw,4.5rem) 0;background:var(--paper)}
+.quick-nav__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:1.1rem;list-style:none;margin:1.8rem 0 0;padding:0}
+.quick-nav__btn{display:grid;gap:.4rem;text-decoration:none;color:var(--ink);background:var(--card);border:2.5px solid var(--ink);border-radius:var(--radius);
+  padding:1.2rem 1.15rem;box-shadow:var(--sticker);transition:transform .14s ease,box-shadow .14s ease;position:relative;overflow:hidden;height:100%}
+.quick-nav__btn::before{content:"";position:absolute;inset:0 0 auto;height:8px;background:var(--g,var(--violet))}
+.quick-nav__btn:hover{transform:translateY(-4px);box-shadow:var(--sticker-lg)}
+.quick-nav__icon{font-size:1.9rem;line-height:1;margin-top:.35rem}
+.quick-nav__label{font-family:var(--display);font-weight:800;text-transform:uppercase;font-size:1.02rem;letter-spacing:.01em;line-height:1.15}
+.quick-nav__blurb{color:var(--ink-soft);font-size:.9rem;line-height:1.5}
+
+/* service sections */
+.services{padding:clamp(3rem,6vw,4.5rem) 0;border-top:2.5px solid var(--line)}
+.services:nth-of-type(even){background:#f7f4ff}
+.services__header{max-width:70ch}
+.services__header .section-heading{display:inline-block;position:relative;padding-bottom:.35rem}
+.services__header .section-heading::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:7px;border-radius:99px;background:var(--g,var(--violet))}
+.services__eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.14em;font-size:.74rem;
+  background:var(--card);border:2.5px solid var(--ink);border-radius:999px;padding:.32rem .85rem;margin-bottom:.9rem;box-shadow:0 3px 0 var(--ink)}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1.4rem;list-style:none;margin:2rem 0 0;padding:0}
+.card{background:var(--card);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--sticker);overflow:hidden;display:flex;flex-direction:column;transition:transform .14s ease,box-shadow .14s ease}
+.card:hover{transform:translateY(-4px);box-shadow:var(--sticker-lg)}
+.card__image{width:100%;aspect-ratio:16/10;object-fit:cover;border-bottom:2.5px solid var(--ink)}
+.card__image--placeholder{display:grid;place-content:center;gap:.35rem;text-align:center;background:
+  repeating-linear-gradient(45deg,rgba(255,255,255,.14) 0 12px,transparent 12px 24px),var(--g,var(--violet));color:#fff}
+.card__image--placeholder span{font-size:2.6rem;line-height:1}
+.card__image--placeholder em{font-style:normal;font-family:var(--display);text-transform:uppercase;font-size:.74rem;letter-spacing:.12em}
+.card__body{padding:1.15rem 1.2rem 1.3rem;display:flex;flex-direction:column;gap:.45rem;flex:1}
+.card__eyebrow{margin:0;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--violet-deep)}
+.card__title{font-size:1.24rem;font-weight:800;margin:0}
+.card__tagline{margin:0;font-weight:600;color:var(--ink)}
+.card__excerpt{color:var(--ink-soft);font-size:.94rem;margin:0}
+.card__meta{margin:.55rem 0 0;padding:.75rem 0 0;border-top:2px dashed var(--line);display:grid;gap:.3rem}
+.card__meta-row{display:grid;grid-template-columns:5.2rem 1fr;gap:.6rem;font-size:.86rem}
+.card__meta-row dt{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.72rem;color:var(--ink-soft);margin:0}
+.card__meta-row dd{margin:0}
+.card__link{margin-top:auto;padding-top:.9rem;font-family:var(--display);font-weight:700;text-transform:uppercase;font-size:.82rem;letter-spacing:.06em;color:var(--violet-deep);text-decoration:none;display:inline-flex;gap:.4rem;align-items:center}
+.card__link::after{content:"→";transition:transform .15s}
+.card__link:hover{text-decoration:underline}
+.card__link:hover::after{transform:translateX(4px)}
+
+
+/* hierarchy: one featured flagship per group + compact text cards */
+.card-grid .card:not(.card--feature)::before{content:"";display:block;height:8px;background:var(--g,var(--violet));margin:-0px -0px 0}
+.card--feature{grid-column:1/-1;flex-direction:row;align-items:stretch;background:linear-gradient(120deg,var(--card) 0 62%,color-mix(in srgb,var(--g,var(--violet)) 10%,var(--card)) 62% 100%)}
+.card--feature .card__image{width:min(380px,42%);aspect-ratio:auto;min-height:240px;border-bottom:none;border-right:2.5px solid var(--ink)}
+.card--feature .card__body{padding:1.6rem 1.8rem;justify-content:center}
+.card--feature .card__title{font-size:1.9rem}
+.card--feature .card__tagline{font-size:1.05rem}
+.card--feature .card__excerpt{font-size:1rem;max-width:56ch}
+.card--feature .card__meta{grid-template-columns:1fr 1fr;column-gap:1.4rem}
+.card--feature .card__link{font-size:.92rem}
+@media(max-width:820px){
+  .card--feature{flex-direction:column}
+  .card--feature .card__image{width:100%;aspect-ratio:16/9;min-height:0;border-right:none;border-bottom:2.5px solid var(--ink)}
+  .card--feature .card__meta{grid-template-columns:1fr}
+}
+
+/* credentials */
+.credentials{padding:clamp(3rem,6vw,4.5rem) 0;background:linear-gradient(135deg,var(--indigo),var(--violet-deep));color:#fff;border-top:2.5px solid var(--ink)}
+.credentials__inner{display:grid;gap:2rem;align-items:center}
+.credentials .section-heading{color:#fff}
+.credentials__text p{color:rgba(255,255,255,.9)}
+.credentials__list{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;gap:.55rem}
+.credentials__list li{display:flex;gap:.65rem;align-items:flex-start;font-size:.97rem;color:rgba(255,255,255,.93)}
+.credentials__list li::before{content:"✓";flex:0 0 1.55rem;height:1.55rem;display:grid;place-items:center;background:var(--amber);color:var(--ink);border:2px solid var(--ink);border-radius:50%;font-weight:800;font-size:.8rem}
+.credentials__figure{margin:0}
+.credentials__figure img{border:3px solid var(--ink);border-radius:var(--radius);box-shadow:0 8px 0 var(--ink);transform:rotate(1.4deg);aspect-ratio:4/3;object-fit:cover}
+@media(min-width:900px){.credentials__inner{grid-template-columns:1.15fr .85fr}}
+
+/* contact */
+.contact{padding:clamp(3rem,6vw,4.5rem) 0}
+.contact__inner{display:grid;gap:2rem}
+.contact__facts{list-style:none;margin:1.3rem 0 0;padding:0;display:grid;gap:.6rem}
+.contact__facts li{background:var(--card);border:2.5px solid var(--ink);border-radius:var(--radius-sm);box-shadow:0 3px 0 var(--ink);padding:.7rem .9rem;font-size:.93rem}
+.contact__phone{margin:1.4rem 0 0;font-size:.95rem;color:var(--ink-soft)}
+.contact__phone a{display:inline-block;margin-top:.45rem;font-family:var(--display);font-weight:800;font-size:1.45rem;color:var(--ink);text-decoration:none;
+  background:var(--sky);border:2.5px solid var(--ink);border-radius:999px;box-shadow:var(--sticker);padding:.45rem 1.1rem}
+.contact__phone a:hover{transform:translateY(-2px);box-shadow:var(--sticker-lg)}
+.form{background:var(--card);border:2.5px solid var(--ink);border-radius:var(--radius);box-shadow:var(--sticker-lg);padding:clamp(1.2rem,3vw,1.9rem);display:grid;gap:1rem}
+.form__row{display:grid;gap:.35rem}
+.form__grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(190px,1fr))}
+.form__label{font-family:var(--display);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.76rem}
+.form__required{color:var(--coral)}
+.form__input{width:100%;font:inherit;font-size:1rem;padding:.7rem .85rem;border:2.5px solid var(--ink);border-radius:var(--radius-sm);background:#fff;color:var(--ink)}
+.form__input:focus{outline:3px solid var(--amber);outline-offset:1px;border-color:var(--violet)}
+.form__hint{color:var(--ink-soft);font-size:.83rem}
+.form__actions{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem}
+@media(min-width:960px){.contact__inner{grid-template-columns:.85fr 1.15fr}}
+
+/* footer */
+.site-footer{background:var(--ink);color:#fff;padding:clamp(2.5rem,5vw,3.5rem) 0 1.5rem;border-top:2.5px solid var(--ink)}
+.site-footer__inner{display:grid;gap:2rem}
+.site-footer a{color:#fff}
+.site-footer a[href^="tel:"],.site-footer a[href^="mailto:"]{text-decoration:underline}
+.lockup--footer .lockup__emphasis{color:var(--amber)}
+.lockup--footer .lockup__top,.lockup--footer .lockup__bottom{color:rgba(255,255,255,.75)}
+.site-footer__slogan{color:rgba(255,255,255,.82);margin:.9rem 0 0;font-family:var(--display);font-size:1rem}
+.site-footer__heading{font-family:var(--display);text-transform:uppercase;font-size:.82rem;letter-spacing:.14em;color:var(--amber);margin:0 0 .6rem}
+.site-footer__menu{list-style:none;margin:0;padding:0;display:grid;gap:.45rem;font-size:.94rem}
+.site-footer__legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem;margin-top:2.2rem;padding-top:1.1rem;border-top:1px solid rgba(255,255,255,.2);font-size:.86rem;color:rgba(255,255,255,.75)}
+.site-footer__legal p{margin:0}
+.footer__brand-link{font-family:var(--display);font-weight:800;text-transform:uppercase;letter-spacing:.08em;text-decoration:none;position:relative;
+  background:linear-gradient(100deg,#fff 0%,var(--amber) 35%,var(--coral) 55%,#fff 80%);background-size:220% 100%;background-position:0 0;
+  -webkit-background-clip:text;background-clip:text;color:transparent;transition:background-position .5s ease}
+.footer__brand-link::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:2.5px;border-radius:2px;background:linear-gradient(90deg,var(--amber),var(--coral));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+.footer__brand-link:hover{background-position:100% 0}
+.footer__brand-link:hover::after{transform:scaleX(1)}
+@media(min-width:800px){.site-footer__inner{grid-template-columns:1.3fr .85fr .85fr}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="lockup" href="#top">
+      <span class="lockup__top">Full Spectrum</span>
+      <strong class="lockup__emphasis">Educational</strong>
+      <span class="lockup__bottom">Services</span>
+    </a>
+    <nav class="site-nav">
+      <ul class="site-nav__list">
+        <li><a href="#services-assembly-programs">Assemblies</a></li>
+        <li><a href="#services-science-nights">Science Nights</a></li>
+        <li><a href="#services-carnivals">Carnivals</a></li>
+        <li><a href="#services-dances-proms">Dances</a></li>
+        <li><a href="#credentials">About Us</a></li>
+      </ul>
+      <div class="site-nav__actions">
+        <a class="site-nav__phone" href="tel:9494966244">(949) 496-6244</a>
+        <a class="btn btn--accent" href="#contact">Check Your Date</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div class="hero__content">
+      <p class="hero__kicker">★ Serving California schools &amp; libraries since 1994</p>
+      <h1 class="hero__heading">Assemblies Your Students Love. <em>Paperwork You Can Trust.</em></h1>
+      <div class="hero__intro">
+        <p>Hands-on science, character education and magic assemblies for preschools, K&ndash;6 schools and public libraries &mdash; standards-aligned, Fire Marshal certified, fully insured, and on site with everything we need.</p>
+      </div>
+      <p class="hero__actions">
+        <a class="btn btn--accent btn--lg" href="#contact">Check Your Date</a>
+        <a class="btn btn--ghost btn--lg" href="#quick-nav">Browse Programs</a>
+      </p>
+    </div>
+    <figure class="hero__figure">
+      <img src="../assets/gym-1.jpeg" alt="A packed school gym during a Full Spectrum assembly">
+      <span class="hero__badge">1,200+<br>assemblies<br>booked</span>
+    </figure>
+    <ul class="hero__trust">
+      <li><strong>45 minutes of wow</strong>Sized for K&ndash;6 attention spans</li>
+      <li><strong>Standards-aligned</strong>Real science behind every laugh</li>
+      <li><strong>We bring everything</strong>Sound, props and clean-up included</li>
+      <li><strong>One invoice, one contact</strong>PO-friendly, W-9 and COI on file</li>
+    </ul>
+  </div>
+</section>
+
+<section class="quick-nav" id="quick-nav">
+  <div class="wrap">
+    <h2 class="section-heading">What are you planning?</h2>
+    <div class="section-intro"><p>Jump straight to the programs that fit your event &mdash; every one comes with grade range, run time and setup requirements up front.</p></div>
+    <ul class="quick-nav__grid">
+      <li><a class="quick-nav__btn" href="#services-assembly-programs" style="--g:var(--violet)">
+        <span class="quick-nav__icon" aria-hidden="true">🎪</span>
+        <span class="quick-nav__label">Assembly Programs</span>
+        <span class="quick-nav__blurb">45-minute school-day assemblies: science, character education and magic.</span></a></li>
+      <li><a class="quick-nav__btn" href="#services-science-nights" style="--g:var(--blue)">
+        <span class="quick-nav__icon" aria-hidden="true">🔭</span>
+        <span class="quick-nav__label">Science Nights &amp; Workshops</span>
+        <span class="quick-nav__blurb">Family evenings, planetarium domes and hands-on chemistry.</span></a></li>
+      <li><a class="quick-nav__btn" href="#services-carnivals" style="--g:var(--coral)">
+        <span class="quick-nav__icon" aria-hidden="true">🎡</span>
+        <span class="quick-nav__label">Carnivals &amp; Festivals</span>
+        <span class="quick-nav__blurb">Midway staffing, face painting, foam parties and game booths.</span></a></li>
+      <li><a class="quick-nav__btn" href="#services-dances-proms" style="--g:var(--sky)">
+        <span class="quick-nav__icon" aria-hidden="true">🎧</span>
+        <span class="quick-nav__label">Dances &amp; Proms</span>
+        <span class="quick-nav__blurb">DJ, lighting and game-show nights that keep the floor full.</span></a></li>
+      <li><a class="quick-nav__btn" href="#services-grad-nights" style="--g:var(--amber)">
+        <span class="quick-nav__icon" aria-hidden="true">🎓</span>
+        <span class="quick-nav__label">Grad Nights</span>
+        <span class="quick-nav__blurb">The clean-comedy hypnosis show built for a senior class.</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services-assembly-programs" style="--g:var(--violet)">
+  <div class="wrap">
+    <header class="services__header">
+      <p class="services__eyebrow">🎪 School-day</p>
+      <h2 class="section-heading">Assembly Programs</h2>
+      <div class="section-intro"><p>One 45-minute assembly, the whole school in the room, and a standards-aligned lesson underneath the laughing.</p></div>
+    </header>
+    <ul class="card-grid">
+      <li class="card card--feature">
+        <div class="card__image card__image--placeholder" role="img" aria-label="Program photography coming soon"><span aria-hidden="true">★</span><em>Full Spectrum Program</em></div>
+        <div class="card__body">
+          <p class="card__eyebrow">Science / STEM (NGSS aligned)</p>
+          <h3 class="card__title">Bubble-Ology 101</h3>
+          <p class="card__tagline">Surface tension, light and geometry &mdash; inside a bubble.</p>
+          <p class="card__excerpt">A 45-minute assembly that turns bubbles into a physics lab: states of matter, surface tension, reflection and refraction, and the geometry that decides a bubble&rsquo;s shape.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Preschool&ndash;6th grade</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>45-min indoor assembly, optional workshops</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Electricity, energy &amp; matter</p>
+          <h3 class="card__title">Mr. Electric: The Generating Knowledge Show</h3>
+          <p class="card__tagline">Half a million volts of indoor lightning.</p>
+          <p class="card__excerpt">A 500,000-volt Tesla coil makes safe indoor lightning, Van de Graaff generators make hair stand up, and hand-crank generators let students produce four-inch sparks themselves.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Assembly, optional 7ft robot upgrade</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Applied physics &amp; scientific inquiry</p>
+          <h3 class="card__title">It&rsquo;s Not Magic, It&rsquo;s Science!</h3>
+          <p class="card__tagline">Every illusion performed twice &mdash; once as magic, once as science.</p>
+          <p class="card__excerpt">Each effect is performed as magic, then taken apart using the scientific method &mdash; the fastest way we know to get a room full of students asking &ldquo;how, why, what if?&rdquo;</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Dual-presentation assembly</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Anti-bullying / character education</p>
+          <h3 class="card__title">NO BULLY ZONE Magic Show</h3>
+          <p class="card__tagline">Naming physical, verbal and cyberbullying &mdash; and what to do next.</p>
+          <p class="card__excerpt">A character-education assembly that separates physical, verbal and cyberbullying, then gives students concrete conflict-resolution steps and permission to ask an adult for help.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>45 minutes</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Substance abuse prevention / Red Ribbon Week</p>
+          <h3 class="card__title">Magicians Against Drugs Magic Show</h3>
+          <p class="card__tagline">Red Ribbon Week with live animals and real stakes.</p>
+          <p class="card__excerpt">A drug-awareness assembly built around magic: a dove, a rabbit, teachers on stage, and a rope illusion showing the seven minutes of life lost to a single cigarette &mdash; then restored.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>45 minutes</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Literacy &amp; reading incentive</p>
+          <h3 class="card__title">Astronaut Andy Magic Show</h3>
+          <p class="card__tagline">Beating alien invaders with things you learn in books.</p>
+          <p class="card__excerpt">Space explorer Astronaut Andy defeats an alien invasion using knowledge he found in books &mdash; a reading-incentive assembly that arrives with worksheets and reading lists.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Pre-K&ndash;5th grade</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Assembly + printable follow-up</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Nature, conservation &amp; storytelling</p>
+          <h3 class="card__title">Wild Things &amp; Puppet Shows</h3>
+          <p class="card__tagline">Reptiles, arachnids and tropical birds, up close.</p>
+          <p class="card__excerpt">Students meet reptiles, arachnids, amphibians and tropical birds, and learn about habitats, endangered species and why preservation matters.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Preschool&ndash;5th grade</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Assembly or library storytime</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Multicultural arts &amp; rhythm workshop</p>
+          <h3 class="card__title">Drumming to the Beat: Drum Circles 101</h3>
+          <p class="card__tagline">Every student with an instrument in their hands.</p>
+          <p class="card__excerpt">An interactive rhythm and cultural drumming workshop where the whole group plays together &mdash; no musical experience required.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Preschool&ndash;high school</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Workshop or assembly, instruments provided</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Environmental education &amp; conservation</p>
+          <h3 class="card__title">Rumbledoor: Earth Day &amp; Recycling Magic</h3>
+          <p class="card__tagline">Environmental stewardship, delivered by a wizard.</p>
+          <p class="card__excerpt">Professor Rumbledoor makes recycling, waste reduction and stewardship feel like a quest rather than a chore &mdash; built for Earth Day and Earth Week.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;6</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>45-minute assembly</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services-science-nights" style="--g:var(--blue)">
+  <div class="wrap">
+    <header class="services__header">
+      <p class="services__eyebrow">🔭 Evenings &amp; workshops</p>
+      <h2 class="section-heading">Science Nights &amp; Workshops</h2>
+      <div class="section-intro"><p>Family-night programming that gets parents on campus &mdash; planetarium domes, telescopes and hands-on chemistry.</p></div>
+    </header>
+    <ul class="card-grid">
+      <li class="card card--feature">
+        <div class="card__image card__image--placeholder" role="img" aria-label="Program photography coming soon"><span aria-hidden="true">★</span><em>Full Spectrum Program</em></div>
+        <div class="card__body">
+          <p class="card__eyebrow">Astronomy &amp; space science / STEM</p>
+          <h3 class="card__title">Portable Planetarium Experience</h3>
+          <p class="card__tagline">A 360° tour of the cosmos, inflated in your multipurpose room.</p>
+          <p class="card__excerpt">Our inflatable dome brings a full planetarium to your campus &mdash; Saturn&rsquo;s rings, the Orion Nebula, lunar craters and Jupiter&rsquo;s moons overhead, with a real meteorite passed hand to hand.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8 and library summer reading</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Two sessions, ~30 per dome</dd></div>
+            <div class="card__meta-row"><dt>From</dt><dd>$525 for two sessions</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Community &amp; family evening science</p>
+          <h3 class="card__title">Night Time Star Party</h3>
+          <p class="card__tagline">A family evening under real telescopes.</p>
+          <p class="card__excerpt">A guided sky tour pairing celestial myth with astrophysics, then multiple telescope stations so families can see Saturn&rsquo;s rings and the Orion Nebula for themselves.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Families, libraries, scout troops</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Evening, multi-station viewing</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Chemistry &amp; material science</p>
+          <h3 class="card__title">Crazy About Chemistry</h3>
+          <p class="card__tagline">Colour changes, polymer slime and safe household reactions.</p>
+          <p class="card__excerpt">An hour of colour-changing reactions, polymer slime synthesis and bubbling solutions &mdash; all built from safe household compounds students can name.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8 and summer library reading</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>60 minutes</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Food science &amp; culinary physics</p>
+          <h3 class="card__title">Incredible Edible Science</h3>
+          <p class="card__tagline">Thermodynamics you can eat.</p>
+          <p class="card__excerpt">Ice cream, popcorn and cotton candy become a lesson in phase changes, steam expansion and polymer crystallisation.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;6, libraries and schools</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Assembly or workshop</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        
+        <div class="card__body">
+          <p class="card__eyebrow">Astronomy &amp; space exploration</p>
+          <h3 class="card__title">Ticket to the Stars</h3>
+          <p class="card__tagline">A full-auditorium journey through the solar system.</p>
+          <p class="card__excerpt">Large visual display pieces and multimedia demonstrations carry a whole assembly from the inner planets to deep space, with students on stage throughout.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8, full auditorium</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Large-format multimedia assembly</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services-carnivals" style="--g:var(--coral)">
+  <div class="wrap">
+    <header class="services__header">
+      <p class="services__eyebrow">🎡 Whole-school events</p>
+      <h2 class="section-heading">School Carnivals &amp; Festivals</h2>
+      <div class="section-intro"><p>We staff the fun side of your fundraiser so your PTA can run the rest.</p></div>
+    </header>
+    <ul class="card-grid">
+      <li class="card card--feature">
+        <div class="card__image card__image--placeholder" role="img" aria-label="Program photography coming soon"><span aria-hidden="true">★</span><em>Full Spectrum Program</em></div>
+        <div class="card__body">
+          <p class="card__eyebrow">Carnivals, festivals &amp; fundraisers</p>
+          <h3 class="card__title">School Carnival &amp; Festival Midway</h3>
+          <p class="card__tagline">Face painting, balloon twisting, clowns and game booths.</p>
+          <p class="card__excerpt">We staff the fun side of your carnival &mdash; face painting, balloon twisting, clowns, strolling magic and game booths &mdash; so your PTA can run the rest.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Whole-school and family events</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Half or full day</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="card__body">
+          <p class="card__eyebrow">Field days, camps &amp; preschool events</p>
+          <h3 class="card__title">Fun Foam Party</h3>
+          <p class="card__tagline">Field days and summer camps, buried in safe foam.</p>
+          <p class="card__excerpt">Non-toxic, hypoallergenic, grass-safe foam turns a field day or camp afternoon into the event students talk about all year.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Preschool&ndash;middle school</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Outdoor, grass area required</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services-dances-proms" style="--g:var(--sky)">
+  <div class="wrap">
+    <header class="services__header">
+      <p class="services__eyebrow">🎧 Evening events</p>
+      <h2 class="section-heading">School Dances &amp; Proms</h2>
+      <div class="section-intro"><p>DJ, lighting and game-show segments that get a middle school dance off the wall.</p></div>
+    </header>
+    <ul class="card-grid">
+      <li class="card card--feature">
+        <div class="card__image card__image--placeholder" role="img" aria-label="Program photography coming soon"><span aria-hidden="true">🎶</span><em>Photos coming soon</em></div>
+        <div class="card__body">
+          <p class="card__eyebrow">Middle and high school dances, proms</p>
+          <h3 class="card__title">School Dances &amp; Game Show Nights</h3>
+          <p class="card__tagline">DJ, lighting and a game show that gets everyone off the wall.</p>
+          <p class="card__excerpt">A DJ and lighting package paired with an interactive game show &mdash; the combination that keeps a middle school dance moving instead of stalling.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>Grades 6&ndash;12</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Evening event</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+      <li class="card">
+        <div class="card__body">
+          <p class="card__eyebrow">Social-emotional learning &amp; peer dynamics</p>
+          <h3 class="card__title">Bully-Free Game Show Assembly</h3>
+          <p class="card__tagline">Family Feud style, with buzzers and a signed membership card.</p>
+          <p class="card__excerpt">Teams, buzzers and trivia turn social-emotional learning into a competition &mdash; and Richard Rumble grounds it in his own childhood experience of being bullied.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>K&ndash;8, split K&ndash;2 and 3&ndash;6+</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Interactive game show assembly</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="services" id="services-grad-nights" style="--g:var(--amber)">
+  <div class="wrap">
+    <header class="services__header">
+      <p class="services__eyebrow">🎓 Senior class</p>
+      <h2 class="section-heading">Grad Nights</h2>
+      <div class="section-intro"><p>The all-night anchor act &mdash; school-sanctioned, clean, and nothing to apologise for on Monday.</p></div>
+    </header>
+    <ul class="card-grid">
+      <li class="card card--feature">
+        <div class="card__image card__image--placeholder" role="img" aria-label="Program photography coming soon"><span aria-hidden="true">★</span><em>Full Spectrum Program</em></div>
+        <div class="card__body">
+          <p class="card__eyebrow">Grad Night &amp; senior class entertainment</p>
+          <h3 class="card__title">Grad Night Comedy Hypnosis Show</h3>
+          <p class="card__tagline">The clean-comedy hypnosis show built for Grad Night.</p>
+          <p class="card__excerpt">Richard Rumble&rsquo;s clean-comedy hypnosis show puts the graduating class on stage and keeps the rest of the room laughing &mdash; a Grad Night anchor with no material to apologise for.</p>
+          <dl class="card__meta">
+            <div class="card__meta-row"><dt>Ages</dt><dd>High school seniors</dd></div>
+            <div class="card__meta-row"><dt>Format</dt><dd>Full-length stage show</dd></div>
+          </dl>
+          <a class="card__link" href="#">Program details</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="credentials" id="credentials">
+  <div class="wrap credentials__inner">
+    <div class="credentials__text">
+      <h2 class="section-heading">Booked With Confidence By California Educators</h2>
+      <p>Every program is presented by credentialed-educator-reviewed performers using NASA and JPL assets, safe demonstration equipment and setups certified by municipal Fire Marshals. Our portable planetarium has been showcased at the Anaheim PTA Convention and the Pasadena Civic Auditorium for the AIAA Foundation.</p>
+      <ul class="credentials__list">
+        <li>Fire Marshal certified planetarium dome &mdash; rapid accordion-fold evacuation</li>
+        <li>NGSS-aligned science content, reviewed by credentialed educators</li>
+        <li>Fully insured; W-9 and certificate of insurance on file</li>
+        <li>Purchase-order friendly, one invoice and one point of contact</li>
+        <li>30 years serving preschools, K&ndash;12 schools and public libraries</li>
+      </ul>
+    </div>
+    <figure class="credentials__figure">
+      <img src="../assets/zany-professor.png" alt="Full Spectrum presenter in character">
+    </figure>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact__inner">
+    <div class="contact__intro">
+      <h2 class="section-heading">Check Your Date</h2>
+      <div class="section-intro"><p>Tell us the date, the grade levels and roughly how many students, and we will confirm availability and pricing.</p></div>
+      <ul class="contact__facts">
+        <li>Serving preschools, public libraries and K&ndash;12 schools throughout California.</li>
+        <li>Peak seasons book early: August&ndash;October and January&ndash;April.</li>
+      </ul>
+      <p class="contact__phone">Prefer to talk it through?<br>
+        <a href="tel:9494966244">(949) 496-6244</a></p>
+    </div>
+    <div class="contact__form-wrap">
+      <form class="form" action="#" method="post">
+        <div class="form__grid">
+          <div class="form__row">
+            <label class="form__label" for="first-name">First name <span class="form__required" aria-hidden="true">*</span></label>
+            <input class="form__input" id="first-name" name="first_name" type="text" required>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="last-name">Last name <span class="form__required" aria-hidden="true">*</span></label>
+            <input class="form__input" id="last-name" name="last_name" type="text" required>
+          </div>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="organization">School, district or library</label>
+          <input class="form__input" id="organization" name="organization" type="text">
+        </div>
+        <div class="form__grid">
+          <div class="form__row">
+            <label class="form__label" for="email">Email <span class="form__required" aria-hidden="true">*</span></label>
+            <input class="form__input" id="email" name="email" type="email" required>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="phone">Phone</label>
+            <input class="form__input" id="phone" name="phone" type="tel">
+          </div>
+        </div>
+        <div class="form__grid">
+          <div class="form__row">
+            <label class="form__label" for="service">What are you planning?</label>
+            <select class="form__input" id="service" name="service">
+              <option value="">Select one</option>
+              <option>Assembly Programs</option>
+              <option>Science Nights &amp; Workshops</option>
+              <option>School Carnivals &amp; Festivals</option>
+              <option>School Dances &amp; Proms</option>
+              <option>Grad Nights</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label" for="event-date">Date of event</label>
+            <input class="form__input" id="event-date" name="event_date" type="date">
+            <span class="form__hint">An approximate date is fine.</span>
+          </div>
+        </div>
+        <div class="form__row">
+          <label class="form__label" for="message">Tell us about your students</label>
+          <textarea class="form__input" id="message" name="message" rows="5"></textarea>
+          <span class="form__hint">Grade levels, number of students, indoor or outdoor, start time.</span>
+        </div>
+        <div class="form__actions">
+          <button class="btn btn--accent btn--lg" type="submit">Send Request</button>
+          <span class="form__hint">We reply within one business day.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap site-footer__inner">
+    <div class="site-footer__brand">
+      <span class="lockup lockup--footer">
+        <span class="lockup__top">Full Spectrum</span>
+        <strong class="lockup__emphasis">Educational</strong>
+        <span class="lockup__bottom">Services</span>
+      </span>
+      <p class="site-footer__slogan">Creating Good Times And Great Memories Is What We Do Best</p>
+      <p class="site-footer__slogan">Once A Customer, Always A Friend</p>
+    </div>
+    <div class="site-footer__contact">
+      <h2 class="site-footer__heading">Booking</h2>
+      <p>
+        <a href="tel:9494966244">(949) 496-6244</a><br>
+        <a href="mailto:programs@full-spectrum.org">programs@full-spectrum.org</a><br>
+        P.O. Box 596, Dana Point, CA 92629
+      </p>
+    </div>
+    <div class="site-footer__links">
+      <h2 class="site-footer__heading">Our Other Services</h2>
+      <ul class="site-footer__menu">
+        <li><a href="https://www.fullspectrument.com">Corporate &amp; Private Events</a></li>
+        <li><a href="https://www.misterhypnosis.com">Mister Hypnosis &mdash; Grad Nights</a></li>
+        <li><a href="https://dreamshapers.org">Dream Shapers Performing Arts</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap site-footer__legal">
+    <p>&copy; 2026 Full Spectrum Educational Services. All rights reserved.</p>
+    <p>Designed by <a class="footer__brand-link" href="https://nerdvision.tech">NerdVision</a></p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -11,6 +11,21 @@ $fse_body    = fse_home_field(
 	'<p>' . esc_html__( 'Every program is presented by credentialed-educator-reviewed performers using NASA and JPL assets, safe demonstration equipment and setups certified by municipal Fire Marshals. Our portable planetarium has been showcased at the Anaheim PTA Convention and the Pasadena Civic Auditorium for the AIAA Foundation.', 'fse' ) . '</p>'
 );
 $fse_image   = fse_home_field( 'credentials_image', 0 );
+$fse_points  = fse_lines(
+	fse_home_field(
+		'credentials_points',
+		implode(
+			"\n",
+			array(
+				__( 'Fire Marshal certified planetarium dome — rapid accordion-fold evacuation', 'fse' ),
+				__( 'NGSS-aligned science content, reviewed by credentialed educators', 'fse' ),
+				__( 'Fully insured; W-9 and certificate of insurance on file', 'fse' ),
+				__( 'Purchase-order friendly, one invoice and one point of contact', 'fse' ),
+				__( '30 years serving preschools, K–12 schools and public libraries', 'fse' ),
+			)
+		)
+	)
+);
 ?>
 
 <section class="credentials" id="credentials">
@@ -18,6 +33,14 @@ $fse_image   = fse_home_field( 'credentials_image', 0 );
 		<div class="credentials__text">
 			<h2 class="section-heading"><?php echo esc_html( $fse_heading ); ?></h2>
 			<div class="prose"><?php echo wp_kses_post( $fse_body ); ?></div>
+
+			<?php if ( $fse_points ) : ?>
+				<ul class="credentials__list">
+					<?php foreach ( $fse_points as $fse_point ) : ?>
+						<li><?php echo esc_html( $fse_point ); ?></li>
+					<?php endforeach; ?>
+				</ul>
+			<?php endif; ?>
 		</div>
 
 		<?php if ( $fse_image ) : ?>

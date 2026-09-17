@@ -10,6 +10,7 @@ $fse_intro   = fse_home_field(
 	'contact_intro',
 	__( 'Tell us the date, the grade levels and roughly how many students, and we will confirm availability and pricing.', 'fse' )
 );
+$fse_phone   = fse_home_field( 'footer_phone', '(949) 496-6244' );
 $fse_sent    = isset( $_GET['fse_sent'] );
 $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fse_error'] ) ) : '';
 ?>
@@ -20,9 +21,18 @@ $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fs
 			<h2 class="section-heading"><?php echo esc_html( $fse_heading ); ?></h2>
 			<div class="section-intro"><?php echo wp_kses_post( wpautop( $fse_intro ) ); ?></div>
 
+			<?php if ( $fse_phone ) : ?>
+				<p>
+					<a class="contact__phone" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $fse_phone ) ); ?>">
+						<?php echo esc_html( $fse_phone ); ?>
+					</a>
+				</p>
+			<?php endif; ?>
+
 			<ul class="contact__facts">
 				<li><?php esc_html_e( 'Serving preschools, public libraries and K–12 schools throughout California.', 'fse' ); ?></li>
 				<li><?php esc_html_e( 'Peak seasons book early: August–October and January–April.', 'fse' ); ?></li>
+				<li><?php esc_html_e( 'Purchase orders welcome — W-9 and certificate of insurance on request.', 'fse' ); ?></li>
 			</ul>
 		</div>
 
@@ -96,7 +106,12 @@ $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fs
 
 				<div class="form__actions">
 					<button class="btn btn--accent btn--lg" type="submit"><?php esc_html_e( 'Send Request', 'fse' ); ?></button>
-					<span class="form__hint"><?php esc_html_e( 'Prefer the phone? Call (949) 496-6244.', 'fse' ); ?></span>
+					<span class="form__hint">
+						<?php
+						/* translators: %s: business phone number. */
+						printf( esc_html__( 'Prefer the phone? Call %s.', 'fse' ), esc_html( $fse_phone ) );
+						?>
+					</span>
 				</div>
 			</form>
 		</div>

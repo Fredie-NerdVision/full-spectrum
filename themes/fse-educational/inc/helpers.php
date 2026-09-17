@@ -154,6 +154,26 @@ function fse_group_anchor( $term ) {
 }
 
 /**
+ * Accent colour for a service group, so the quick-nav tile, section heading
+ * rule and card bars of one group always agree. Assigned by the group's
+ * position so adding a group never leaves it colourless.
+ *
+ * @param WP_Term $term Term.
+ * @return string CSS custom-property value.
+ */
+function fse_group_accent( $term ) {
+	$palette = array( 'var(--violet)', 'var(--blue)', 'var(--coral)', 'var(--sky)', 'var(--amber)' );
+	$slugs   = wp_list_pluck( fse_active_service_groups(), 'slug' );
+	$index   = array_search( $term->slug, $slugs, true );
+
+	if ( false === $index ) {
+		$index = 0;
+	}
+
+	return $palette[ $index % count( $palette ) ];
+}
+
+/**
  * Header menu wording for a service group. Full names such as "School
  * Carnivals & Festivals" are too long for a single-line menu, so editors can
  * supply a shorter label per group.

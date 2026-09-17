@@ -396,29 +396,34 @@ foreach ( $programs as $program ) {
 
 $group_meta = array(
 	'assembly-programs' => array(
-		'icon'  => '🫧',
-		'nav'   => 'Assemblies',
-		'blurb' => 'Science, magic, kindness and reading shows for the whole school, K through 6.',
+		'icon'    => '🫧',
+		'nav'     => 'Assemblies',
+		'blurb'   => 'Science, magic, kindness and reading shows for the whole school, K through 6.',
+		'eyebrow' => 'Whole-school assemblies',
 	),
 	'science-nights'    => array(
-		'icon'  => '🔬',
-		'nav'   => 'Science Nights',
-		'blurb' => 'Family science evenings, the star dome and hands-on workshops kids do themselves.',
+		'icon'    => '🔬',
+		'nav'     => 'Science Nights',
+		'blurb'   => 'Family science evenings, the star dome and hands-on workshops kids do themselves.',
+		'eyebrow' => 'Family evenings',
 	),
 	'carnivals'         => array(
-		'icon'  => '🎪',
-		'nav'   => 'Carnivals',
-		'blurb' => 'Face painting, foam, balloon animals and game booths for festivals and fundraisers.',
+		'icon'    => '🎪',
+		'nav'     => 'Carnivals',
+		'blurb'   => 'Face painting, foam, balloon animals and game booths for festivals and fundraisers.',
+		'eyebrow' => 'Festivals & fundraisers',
 	),
 	'dances-proms'      => array(
-		'icon'  => '🪩',
-		'nav'   => 'Dances',
-		'blurb' => 'Music, lights and game shows for upper-grade dances and end-of-year parties.',
+		'icon'    => '🪩',
+		'nav'     => 'Dances',
+		'blurb'   => 'Music, lights and game shows for upper-grade dances and end-of-year parties.',
+		'eyebrow' => 'Upper-grade parties',
 	),
 	'grad-nights'       => array(
-		'icon'  => '🎉',
-		'nav'   => 'Grad Nights',
-		'blurb' => 'Sixth-grade promotion and Grad Night entertainment, all clean comedy.',
+		'icon'    => '🎉',
+		'nav'     => 'Grad Nights',
+		'blurb'   => 'Sixth-grade promotion and Grad Night entertainment, all clean comedy.',
+		'eyebrow' => 'Send-offs & promotions',
 	),
 );
 
@@ -435,23 +440,28 @@ foreach ( $group_meta as $slug => $values ) {
 	update_term_meta( $term->term_id, '_group_blurb', 'field_fse_group_blurb' );
 	update_term_meta( $term->term_id, 'group_nav_label', $values['nav'] );
 	update_term_meta( $term->term_id, '_group_nav_label', 'field_fse_group_nav_label' );
+	update_term_meta( $term->term_id, 'group_eyebrow', $values['eyebrow'] );
+	update_term_meta( $term->term_id, '_group_eyebrow', 'field_fse_group_eyebrow' );
 }
 
 $front_id = (int) get_option( 'page_on_front' );
 
 if ( $front_id ) {
 	$home = array(
-		'hero_heading'             => 'Bubbles, lightning and magic — the assembly your students talk about all week',
-		'hero_intro'               => 'Full Spectrum brings hands-on science, character-building and magic assemblies to K-6 schools and libraries across Southern California. Loud, funny, a little messy, and quietly packed with standards-aligned learning.',
-		'hero_cta_label'           => 'Check your date',
+		'hero_kicker'              => '★ Serving California schools & libraries since 1994',
+		'hero_heading'             => 'Assemblies Your Students Love. <em>Paperwork You Can Trust.</em>',
+		'hero_intro'               => 'Hands-on science, character education and magic assemblies for preschools, K-6 schools and public libraries — standards-aligned, Fire Marshal certified, fully insured, and on site with everything we need.',
+		'hero_cta_label'           => 'Check Your Date',
+		'hero_badge'               => '1,200+ assemblies booked',
 		'quicknav_heading'         => 'What are you planning?',
 		'quicknav_intro'           => 'Tap the kind of event you are putting together and jump straight to the shows that fit.',
 		'programs_heading'         => 'Pick a show',
 		'credentials_heading'      => 'Safe hands, happy principals',
 		'credentials_body'         => "Every show is presented by a live-scan-cleared performer carrying $1M general liability coverage, with a W-9 and certificate of insurance ready for your district office. We arrive early, bring our own sound and props, and are packed up before the buses line up.",
+		'credentials_points'       => "Fire Marshal certified planetarium dome — rapid accordion-fold evacuation\nNGSS-aligned science content, reviewed by credentialed educators\nFully insured; W-9 and certificate of insurance on file\nPurchase-order friendly, one invoice and one point of contact\n30 years serving preschools, K-12 schools and public libraries",
 		'contact_heading'          => 'Check your date',
 		'contact_intro'            => 'Tell us your date and grade levels and we will confirm availability and pricing within one business day. No deposit needed to hold a tentative date.',
-		'contact_recipients'       => get_option( 'admin_email' ),
+		'contact_recipients'       => 'fullspectrument@hotmail.com',
 		'contact_success'          => 'Thank you — your request is in. Sandee will reply within one business day.',
 		'footer_tagline'           => 'Creating Good Times And Great Memories Is What We Do Best',
 		'footer_secondary_tagline' => 'Once A Customer, Always A Friend',
