@@ -19,13 +19,27 @@ if ( ! $fse_query->have_posts() ) {
 	return;
 }
 
-$fse_blurb = fse_field( 'group_blurb', '', $fse_term );
-$fse_desc  = $fse_blurb ? $fse_blurb : term_description( $fse_term );
+$fse_blurb  = fse_field( 'group_blurb', '', $fse_term );
+$fse_desc   = $fse_blurb ? $fse_blurb : term_description( $fse_term );
+$fse_accent = fse_group_accent( $fse_term );
+$fse_slugs  = wp_list_pluck( fse_active_service_groups(), 'slug' );
+$fse_tint   = 1 === ( (int) array_search( $fse_term->slug, $fse_slugs, true ) % 2 );
 ?>
 
-<section class="services" id="<?php echo esc_attr( fse_group_anchor( $fse_term ) ); ?>" data-group="<?php echo esc_attr( $fse_term->slug ); ?>">
+<section class="services<?php echo $fse_tint ? ' services--tint' : ''; ?>" id="<?php echo esc_attr( fse_group_anchor( $fse_term ) ); ?>" data-group="<?php echo esc_attr( $fse_term->slug ); ?>" style="--g: <?php echo esc_attr( $fse_accent ); ?>">
 	<div class="wrap">
 		<header class="services__header">
+			<?php
+			$fse_eyebrow = fse_field( 'group_eyebrow', '', $fse_term );
+
+			if ( $fse_eyebrow ) :
+				?>
+				<p class="services__eyebrow">
+					<span aria-hidden="true"><?php echo esc_html( fse_field( 'group_icon', '★', $fse_term ) ); ?></span>
+					<?php echo esc_html( $fse_eyebrow ); ?>
+				</p>
+			<?php endif; ?>
+
 			<h2 class="section-heading"><?php echo esc_html( $fse_term->name ); ?></h2>
 			<?php if ( $fse_desc ) : ?>
 				<div class="section-intro"><?php echo wp_kses_post( wpautop( $fse_desc ) ); ?></div>
@@ -34,11 +48,22 @@ $fse_desc  = $fse_blurb ? $fse_blurb : term_description( $fse_term );
 
 		<ul class="card-grid">
 			<?php
+			$fse_index = 0;
+
 			while ( $fse_query->have_posts() ) :
 				$fse_query->the_post();
+
+				/* The first program in each group leads the section as a wide
+				   editorial card; the rest are compact so the flagship reads first. */
+				$fse_is_feature = ( 0 === $fse_index );
+				++$fse_index;
 				?>
-				<li class="card">
-					<?php fse_program_media( get_the_ID() ); ?>
+				<li class="card<?php echo $fse_is_feature ? ' card--feature' : ''; ?>">
+					<?php
+					if ( $fse_is_feature ) {
+						fse_program_media( get_the_ID() );
+					}
+					?>
 
 					<div class="card__body">
 						<?php

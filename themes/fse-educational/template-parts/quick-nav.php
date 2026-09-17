@@ -22,7 +22,7 @@ $fse_intro   = fse_home_field( 'quicknav_intro', __( 'Jump straight to the progr
 
 		<ul class="quick-nav__grid">
 			<?php foreach ( $fse_groups as $fse_term ) : ?>
-				<li>
+				<li style="--g: <?php echo esc_attr( fse_group_accent( $fse_term ) ); ?>">
 					<a class="quick-nav__btn" href="#<?php echo esc_attr( fse_group_anchor( $fse_term ) ); ?>">
 						<span class="quick-nav__icon" aria-hidden="true"><?php echo esc_html( fse_field( 'group_icon', '★', $fse_term ) ); ?></span>
 						<span class="quick-nav__label"><?php echo esc_html( $fse_term->name ); ?></span>
