@@ -74,7 +74,7 @@ if ( ! $mrh_query->have_posts() ) {
 					<?php endforeach; ?>
 
 					<p class="audience__actions">
-						<a class="btn btn--gold" href="#booking"><?php echo esc_html( $mrh_cta ); ?></a>
+						<a class="btn btn--red" href="#booking"><?php echo esc_html( $mrh_cta ); ?></a>
 					</p>
 				</div>
 

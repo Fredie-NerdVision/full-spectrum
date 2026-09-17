@@ -5,7 +5,7 @@
  * @package mrh
  */
 
-$mrh_phone = mrh_home_field( 'footer_phone', '(949) 496-6244' );
+$mrh_phone = mrh_home_field( 'footer_phone', '(714) 322-0207' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -77,7 +77,7 @@ $mrh_phone = mrh_home_field( 'footer_phone', '(949) 496-6244' );
 
 			<div class="site-nav__actions">
 				<a class="site-nav__phone" href="tel:<?php echo esc_attr( preg_replace( '/[^0-9+]/', '', $mrh_phone ) ); ?>"><?php echo esc_html( $mrh_phone ); ?></a>
-				<a class="btn btn--gold" href="<?php echo esc_url( home_url( '/#booking' ) ); ?>"><?php esc_html_e( 'Check Your Date', 'mrh' ); ?></a>
+				<a class="btn btn--red" href="<?php echo esc_url( home_url( '/#booking' ) ); ?>"><?php esc_html_e( 'Book Us', 'mrh' ); ?></a>
 			</div>
 		</nav>
 	</div>

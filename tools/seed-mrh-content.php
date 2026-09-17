@@ -159,7 +159,7 @@ $front_id = (int) get_option( 'page_on_front' );
 
 if ( $front_id ) {
 	$home = array(
-		'hero_kicker'        => 'Clean-comedy stage hypnosis & magic',
+		'hero_kicker'        => 'Mister Hypnosis',
 		'hero_heading'       => 'Richard Rumble',
 		'hero_intro'         => 'Thirty years of stage hypnosis and magic for Grad Nights, colleges and corporate events. Member of The Magic Castle in Hollywood, the National Guild of Hypnotists and the International Brotherhood of Magicians.',
 		'hero_video'         => '955007390',
@@ -172,7 +172,7 @@ if ( $front_id ) {
 		'contact_intro'      => 'Send the date and the room, and Sandee will confirm availability and pricing within one business day.',
 		'contact_recipients' => 'hypno2u@hotmail.com, hypno2u@icloud.com, richard@misterhypnosis.com',
 		'contact_success'    => 'Thank you — your enquiry is in. Sandee or Richard will reply within one business day.',
-		'footer_phone'       => '(949) 496-6244',
+		'footer_phone'       => '(714) 322-0207',
 		'footer_email'       => 'richard@misterhypnosis.com',
 		'footer_address'     => 'P.O. Box 596, Dana Point, CA 92629',
 	);
