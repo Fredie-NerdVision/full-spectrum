@@ -8,7 +8,7 @@
 $mrh_heading = mrh_home_field( 'contact_heading', __( 'Check your date', 'mrh' ) );
 $mrh_intro   = mrh_home_field( 'contact_intro', '' );
 $mrh_success = mrh_home_field( 'contact_success', __( 'Thank you — your enquiry is in. Sandee or Richard will reply within one business day.', 'mrh' ) );
-$mrh_phone   = mrh_home_field( 'footer_phone', '(949) 496-6244' );
+$mrh_phone   = mrh_home_field( 'footer_phone', '(714) 322-0207' );
 $mrh_sent    = isset( $_GET['mrh_sent'] ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
 $mrh_error   = isset( $_GET['mrh_error'] ) ? sanitize_key( wp_unslash( $_GET['mrh_error'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
 

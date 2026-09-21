@@ -5,7 +5,7 @@
  * @package mrh
  */
 
-$mrh_phone     = mrh_home_field( 'footer_phone', '(949) 496-6244' );
+$mrh_phone     = mrh_home_field( 'footer_phone', '(714) 322-0207' );
 $mrh_email     = mrh_home_field( 'footer_email', 'richard@misterhypnosis.com' );
 $mrh_address   = mrh_home_field( 'footer_address', 'P.O. Box 596, Dana Point, CA 92629' );
 $mrh_facebook  = mrh_home_field( 'footer_facebook', '' );
