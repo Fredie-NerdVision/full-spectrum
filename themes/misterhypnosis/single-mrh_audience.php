@@ -48,7 +48,7 @@ while ( have_posts() ) :
 				<?php endforeach; ?>
 
 				<p class="audience__actions">
-					<a class="btn btn--gold btn--lg" href="<?php echo esc_url( home_url( '/#booking' ) ); ?>"><?php esc_html_e( 'Check your date', 'mrh' ); ?></a>
+					<a class="btn btn--red btn--lg" href="<?php echo esc_url( home_url( '/#booking' ) ); ?>"><?php esc_html_e( 'Check your date', 'mrh' ); ?></a>
 				</p>
 			</div>
 

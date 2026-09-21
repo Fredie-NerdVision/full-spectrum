@@ -10,7 +10,7 @@ add_action(
 	function () {
 		wp_enqueue_style(
 			'mrh-fonts',
-			'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap',
+			'https://fonts.googleapis.com/css2?family=Fjalla+One&family=Inter:wght@400;500;600;700&display=swap',
 			array(),
 			null
 		);

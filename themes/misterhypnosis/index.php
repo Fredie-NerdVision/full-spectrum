@@ -21,7 +21,7 @@ get_header();
 			<?php the_posts_pagination(); ?>
 		<?php else : ?>
 			<h1 class="section-heading"><?php esc_html_e( 'Nothing here yet', 'mrh' ); ?></h1>
-			<p><a class="btn btn--gold" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to the show', 'mrh' ); ?></a></p>
+			<p><a class="btn btn--red" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php esc_html_e( 'Back to the show', 'mrh' ); ?></a></p>
 		<?php endif; ?>
 	</div>
 </section>

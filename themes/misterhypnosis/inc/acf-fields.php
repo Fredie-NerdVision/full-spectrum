@@ -39,7 +39,7 @@ add_action(
 						'label'        => __( 'Kicker', 'mrh' ),
 						'name'         => 'hero_kicker',
 						'type'         => 'text',
-						'default_value'=> 'Clean-comedy stage hypnosis',
+						'default_value'=> 'Mister Hypnosis',
 					),
 					array(
 						'key'          => 'field_mrh_hero_heading',
@@ -58,15 +58,16 @@ add_action(
 					),
 					array(
 						'key'           => 'field_mrh_hero_portrait',
-						'label'         => __( 'Portrait (purple jacket)', 'mrh' ),
+						'label'         => __( 'Portrait', 'mrh' ),
 						'name'          => 'hero_portrait',
 						'type'          => 'image',
 						'return_format' => 'id',
 						'preview_size'  => 'medium',
+						'instructions'  => __( 'Not shown in the current hero layout — the stage photo below doubles as the portrait.', 'mrh' ),
 					),
 					array(
 						'key'           => 'field_mrh_hero_background',
-						'label'         => __( 'Background stage photo', 'mrh' ),
+						'label'         => __( 'Stage photo', 'mrh' ),
 						'name'          => 'hero_background',
 						'type'          => 'image',
 						'return_format' => 'id',
@@ -117,6 +118,15 @@ add_action(
 						'new_lines'    => '',
 						'instructions' => __( 'One per line.', 'mrh' ),
 						'default_value'=> "NLP Master Practitioner\nAmerican Board of Hypnotherapy\nNational Guild of Hypnotists\nSociety of Applied Hypnosis\nInternational Brotherhood of Magicians\nThe Magic Castle, Hollywood CA",
+					),
+					array(
+						'key'           => 'field_mrh_credentials_badge',
+						'label'         => __( 'Credential badge', 'mrh' ),
+						'name'          => 'credentials_badge',
+						'type'          => 'image',
+						'return_format' => 'id',
+						'preview_size'  => 'medium',
+						'instructions'  => __( 'A membership mark such as the Magic Castle logo. White-on-transparent PNG reads best against the dark background.', 'mrh' ),
 					),
 					array(
 						'key'   => 'field_mrh_tab_audiences',
@@ -186,7 +196,7 @@ add_action(
 						'label'        => __( 'Phone', 'mrh' ),
 						'name'         => 'footer_phone',
 						'type'         => 'text',
-						'default_value'=> '(949) 496-6244',
+						'default_value'=> '(714) 322-0207',
 					),
 					array(
 						'key'          => 'field_mrh_footer_email',
