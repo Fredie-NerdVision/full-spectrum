@@ -466,7 +466,7 @@ if ( $front_id ) {
 		'footer_tagline'           => 'Creating Good Times And Great Memories Is What We Do Best',
 		'footer_secondary_tagline' => 'Once A Customer, Always A Friend',
 		'footer_address'           => 'P.O. Box 596, Dana Point, CA 92629',
-		'footer_phone'             => '(949) 496-6244',
+		'footer_phone'             => '(714) 322-0207',
 	);
 
 	foreach ( $home as $key => $value ) {

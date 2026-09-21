@@ -5,7 +5,7 @@
  * @package fse
  */
 
-$fse_phone   = fse_home_field( 'footer_phone', '(949) 496-6244' );
+$fse_phone   = fse_home_field( 'footer_phone', '(714) 322-0207' );
 $fse_email   = fse_home_field( 'footer_email', 'programs@full-spectrum.org' );
 $fse_address = fse_home_field( 'footer_address', 'P.O. Box 596, Dana Point, CA 92629' );
 ?>

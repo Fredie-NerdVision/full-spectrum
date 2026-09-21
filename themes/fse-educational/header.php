@@ -66,7 +66,7 @@
 				echo '</ul>';
 			}
 
-			$phone = fse_home_field( 'footer_phone', '(949) 496-6244' );
+			$phone = fse_home_field( 'footer_phone', '(714) 322-0207' );
 			?>
 
 			<div class="site-nav__actions">

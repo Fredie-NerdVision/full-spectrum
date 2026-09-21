@@ -240,7 +240,7 @@ add_action(
 						'label'        => __( 'Phone', 'fse' ),
 						'name'         => 'footer_phone',
 						'type'         => 'text',
-						'default_value'=> '(949) 496-6244',
+						'default_value'=> '(714) 322-0207',
 					),
 					array(
 						'key'          => 'field_fse_footer_email',

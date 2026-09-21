@@ -10,7 +10,7 @@ $fse_intro   = fse_home_field(
 	'contact_intro',
 	__( 'Tell us the date, the grade levels and roughly how many students, and we will confirm availability and pricing.', 'fse' )
 );
-$fse_phone   = fse_home_field( 'footer_phone', '(949) 496-6244' );
+$fse_phone   = fse_home_field( 'footer_phone', '(714) 322-0207' );
 $fse_sent    = isset( $_GET['fse_sent'] );
 $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fse_error'] ) ) : '';
 ?>
