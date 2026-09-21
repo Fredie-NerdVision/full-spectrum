@@ -120,6 +120,15 @@ add_action(
 						'default_value'=> "NLP Master Practitioner\nAmerican Board of Hypnotherapy\nNational Guild of Hypnotists\nSociety of Applied Hypnosis\nInternational Brotherhood of Magicians\nThe Magic Castle, Hollywood CA",
 					),
 					array(
+						'key'           => 'field_mrh_credentials_badge',
+						'label'         => __( 'Credential badge', 'mrh' ),
+						'name'          => 'credentials_badge',
+						'type'          => 'image',
+						'return_format' => 'id',
+						'preview_size'  => 'medium',
+						'instructions'  => __( 'A membership mark such as the Magic Castle logo. White-on-transparent PNG reads best against the dark background.', 'mrh' ),
+					),
+					array(
 						'key'   => 'field_mrh_tab_audiences',
 						'label' => __( 'Audiences', 'mrh' ),
 						'name'  => '',

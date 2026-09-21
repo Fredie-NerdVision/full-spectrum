@@ -10,6 +10,7 @@ $mrh_heading     = mrh_home_field( 'about_heading', __( 'About Richard Rumble', 
 $mrh_body        = mrh_home_field( 'about_body', '' );
 $mrh_image       = mrh_home_field( 'about_image', 0 );
 $mrh_credentials = mrh_lines( mrh_home_field( 'credentials_list', '' ) );
+$mrh_badge       = mrh_home_field( 'credentials_badge', 0 );
 ?>
 
 <section class="about" id="about">
@@ -33,6 +34,19 @@ $mrh_credentials = mrh_lines( mrh_home_field( 'credentials_list', '' ) );
 		<div class="about__body">
 			<h2 class="section-heading"><?php echo esc_html( $mrh_heading ); ?></h2>
 			<?php echo wp_kses_post( wpautop( $mrh_body ) ); ?>
+
+			<?php if ( $mrh_badge ) : ?>
+				<p class="about__badge">
+					<?php
+					echo wp_get_attachment_image(
+						$mrh_badge,
+						'medium',
+						false,
+						array( 'alt' => esc_attr__( 'The Magic Castle, Hollywood', 'mrh' ) )
+					);
+					?>
+				</p>
+			<?php endif; ?>
 
 			<?php if ( $mrh_credentials ) : ?>
 				<h3 class="about__credentials-heading"><?php esc_html_e( 'Credentials & memberships', 'mrh' ); ?></h3>
