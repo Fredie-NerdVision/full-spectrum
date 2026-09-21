@@ -172,7 +172,7 @@ if ( $front_id ) {
 		'contact_intro'      => 'Send the date and the room, and Sandee will confirm availability and pricing within one business day.',
 		'contact_recipients' => 'hypno2u@hotmail.com, hypno2u@icloud.com, richard@misterhypnosis.com',
 		'contact_success'    => 'Thank you — your enquiry is in. Sandee or Richard will reply within one business day.',
-		'footer_phone'       => '(714) 322-0207',
+		'footer_phone'       => '(949) 496-6244',
 		'footer_email'       => 'richard@misterhypnosis.com',
 		'footer_address'     => 'P.O. Box 596, Dana Point, CA 92629',
 	);

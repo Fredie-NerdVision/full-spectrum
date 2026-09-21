@@ -196,7 +196,7 @@ add_action(
 						'label'        => __( 'Phone', 'mrh' ),
 						'name'         => 'footer_phone',
 						'type'         => 'text',
-						'default_value'=> '(714) 322-0207',
+						'default_value'=> '(949) 496-6244',
 					),
 					array(
 						'key'          => 'field_mrh_footer_email',
