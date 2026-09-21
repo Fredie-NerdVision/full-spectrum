@@ -47,11 +47,28 @@ add_action(
 						'instructions'  => __( 'Wide banner artwork, at least 2400px across. Replaces the old hero photo.', 'fse' ),
 					),
 					array(
+						'key'           => 'field_fse_hero_photo',
+						'label'         => __( 'Hero photo', 'fse' ),
+						'name'          => 'hero_photo',
+						'type'          => 'image',
+						'return_format' => 'id',
+						'preview_size'  => 'medium',
+						'instructions'  => __( 'Shown beside the headline in a tilted frame. A wide shot of a real audience works best.', 'fse' ),
+					),
+					array(
+						'key'          => 'field_fse_hero_kicker',
+						'label'        => __( 'Kicker pill', 'fse' ),
+						'name'         => 'hero_kicker',
+						'type'         => 'text',
+						'default_value'=> '★ Serving California schools & libraries since 1994',
+					),
+					array(
 						'key'          => 'field_fse_hero_heading',
 						'label'        => __( 'Headline', 'fse' ),
 						'name'         => 'hero_heading',
 						'type'         => 'text',
-						'default_value'=> 'The Assembly Your K-6 Students Will Talk About All Week',
+						'default_value'=> 'Assemblies Your Students Love. <em>Paperwork You Can Trust.</em>',
+						'instructions' => __( 'Wrap a word or phrase in <em> to colour it amber.', 'fse' ),
 					),
 					array(
 						'key'          => 'field_fse_hero_intro',
@@ -67,6 +84,14 @@ add_action(
 						'name'         => 'hero_cta_label',
 						'type'         => 'text',
 						'default_value'=> 'Check Your Date',
+					),
+					array(
+						'key'          => 'field_fse_hero_badge',
+						'label'        => __( 'Photo badge', 'fse' ),
+						'name'         => 'hero_badge',
+						'type'         => 'text',
+						'instructions' => __( 'Short proof point stuck on the hero photo. Leave blank to hide.', 'fse' ),
+						'default_value'=> '1,200+ assemblies booked',
 					),
 					array(
 						'key'   => 'field_fse_tab_quicknav',
@@ -130,6 +155,14 @@ add_action(
 						'type'      => 'wysiwyg',
 						'media_upload' => 0,
 						'toolbar'   => 'basic',
+					),
+					array(
+						'key'          => 'field_fse_credentials_points',
+						'label'        => __( 'Checklist', 'fse' ),
+						'name'         => 'credentials_points',
+						'type'         => 'textarea',
+						'rows'         => 6,
+						'instructions' => __( 'One point per line.', 'fse' ),
 					),
 					array(
 						'key'           => 'field_fse_credentials_image',
@@ -207,7 +240,7 @@ add_action(
 						'label'        => __( 'Phone', 'fse' ),
 						'name'         => 'footer_phone',
 						'type'         => 'text',
-						'default_value'=> '(949) 496-6244',
+						'default_value'=> '(714) 322-0207',
 					),
 					array(
 						'key'          => 'field_fse_footer_email',
@@ -309,6 +342,13 @@ add_action(
 						'type'         => 'text',
 						'instructions' => __( 'A single emoji or character shown on the quick-navigation button.', 'fse' ),
 						'maxlength'    => 4,
+					),
+					array(
+						'key'          => 'field_fse_group_eyebrow',
+						'label'        => __( 'Section eyebrow', 'fse' ),
+						'name'         => 'group_eyebrow',
+						'type'         => 'text',
+						'instructions' => __( 'Short line above the section heading, e.g. "Whole-school assemblies".', 'fse' ),
 					),
 					array(
 						'key'          => 'field_fse_group_nav_label',

@@ -1,0 +1,354 @@
+[
+    {
+        "key": "group_fse_home",
+        "title": "Home Page Sections",
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ]
+        ],
+        "position": "acf_after_title",
+        "style": "seamless",
+        "fields": [
+            {
+                "key": "field_fse_tab_hero",
+                "label": "Header",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_hero_banner",
+                "label": "Header banner (horizontal)",
+                "name": "hero_banner",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium",
+                "instructions": "Wide banner artwork, at least 2400px across. Replaces the old hero photo."
+            },
+            {
+                "key": "field_fse_hero_photo",
+                "label": "Hero photo",
+                "name": "hero_photo",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium",
+                "instructions": "Shown beside the headline in a tilted frame. A wide shot of a real audience works best."
+            },
+            {
+                "key": "field_fse_hero_kicker",
+                "label": "Kicker pill",
+                "name": "hero_kicker",
+                "type": "text",
+                "default_value": "★ Serving California schools & libraries since 1994"
+            },
+            {
+                "key": "field_fse_hero_heading",
+                "label": "Headline",
+                "name": "hero_heading",
+                "type": "text",
+                "default_value": "Assemblies Your Students Love. <em>Paperwork You Can Trust.</em>",
+                "instructions": "Wrap a word or phrase in <em> to colour it amber."
+            },
+            {
+                "key": "field_fse_hero_intro",
+                "label": "Intro paragraph",
+                "name": "hero_intro",
+                "type": "textarea",
+                "rows": 3,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_fse_hero_cta_label",
+                "label": "Button label",
+                "name": "hero_cta_label",
+                "type": "text",
+                "default_value": "Check Your Date"
+            },
+            {
+                "key": "field_fse_hero_badge",
+                "label": "Photo badge",
+                "name": "hero_badge",
+                "type": "text",
+                "instructions": "Short proof point stuck on the hero photo. Leave blank to hide.",
+                "default_value": "1,200+ assemblies booked"
+            },
+            {
+                "key": "field_fse_tab_quicknav",
+                "label": "Quick Navigation",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_quicknav_heading",
+                "label": "Heading",
+                "name": "quicknav_heading",
+                "type": "text",
+                "default_value": "What are you planning?"
+            },
+            {
+                "key": "field_fse_quicknav_intro",
+                "label": "Intro",
+                "name": "quicknav_intro",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_fse_tab_programs",
+                "label": "Programs",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_programs_heading",
+                "label": "Heading",
+                "name": "programs_heading",
+                "type": "text",
+                "default_value": "Pick A Show"
+            },
+            {
+                "key": "field_fse_programs_intro",
+                "label": "Intro",
+                "name": "programs_intro",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_fse_tab_credentials",
+                "label": "Credentials",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_credentials_heading",
+                "label": "Heading",
+                "name": "credentials_heading",
+                "type": "text",
+                "default_value": "Safe Hands, Happy Principals"
+            },
+            {
+                "key": "field_fse_credentials_body",
+                "label": "Body copy",
+                "name": "credentials_body",
+                "type": "wysiwyg",
+                "media_upload": 0,
+                "toolbar": "basic"
+            },
+            {
+                "key": "field_fse_credentials_points",
+                "label": "Checklist",
+                "name": "credentials_points",
+                "type": "textarea",
+                "rows": 6,
+                "instructions": "One point per line."
+            },
+            {
+                "key": "field_fse_credentials_image",
+                "label": "Supporting photo",
+                "name": "credentials_image",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_fse_tab_contact",
+                "label": "Contact",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_contact_heading",
+                "label": "Heading",
+                "name": "contact_heading",
+                "type": "text",
+                "default_value": "Check Your Date"
+            },
+            {
+                "key": "field_fse_contact_intro",
+                "label": "Intro",
+                "name": "contact_intro",
+                "type": "textarea",
+                "rows": 3,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_fse_contact_recipients",
+                "label": "Send enquiries to",
+                "name": "contact_recipients",
+                "type": "text",
+                "instructions": "Comma separated. Leave blank to use the WordPress admin email.",
+                "default_value": "fullspectrument@hotmail.com"
+            },
+            {
+                "key": "field_fse_contact_success",
+                "label": "Thank-you message",
+                "name": "contact_success",
+                "type": "text",
+                "default_value": "Thank you — we have your request and will reply within one business day."
+            },
+            {
+                "key": "field_fse_tab_footer",
+                "label": "Footer",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_fse_footer_tagline",
+                "label": "Primary slogan",
+                "name": "footer_tagline",
+                "type": "text",
+                "default_value": "Creating Good Times And Great Memories Is What We Do Best"
+            },
+            {
+                "key": "field_fse_footer_secondary",
+                "label": "Secondary slogan",
+                "name": "footer_secondary_tagline",
+                "type": "text",
+                "default_value": "Once A Customer, Always A Friend"
+            },
+            {
+                "key": "field_fse_footer_address",
+                "label": "Mailing address",
+                "name": "footer_address",
+                "type": "text",
+                "default_value": "P.O. Box 596, Dana Point, CA 92629"
+            },
+            {
+                "key": "field_fse_footer_phone",
+                "label": "Phone",
+                "name": "footer_phone",
+                "type": "text",
+                "default_value": "(714) 322-0207"
+            },
+            {
+                "key": "field_fse_footer_email",
+                "label": "Email",
+                "name": "footer_email",
+                "type": "text",
+                "default_value": "programs@full-spectrum.org"
+            }
+        ]
+    },
+    {
+        "key": "group_fse_program",
+        "title": "Program Details",
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "fse_program"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_fse_program_tagline",
+                "label": "Card tagline",
+                "name": "program_tagline",
+                "type": "text",
+                "instructions": "One line shown under the program name on the card."
+            },
+            {
+                "key": "field_fse_program_discipline",
+                "label": "Discipline",
+                "name": "program_discipline",
+                "type": "text",
+                "instructions": "e.g. Science / STEM (NGSS Aligned)"
+            },
+            {
+                "key": "field_fse_program_audience",
+                "label": "Target audience",
+                "name": "program_audience",
+                "type": "text"
+            },
+            {
+                "key": "field_fse_program_duration",
+                "label": "Format & duration",
+                "name": "program_duration",
+                "type": "text"
+            },
+            {
+                "key": "field_fse_program_highlights",
+                "label": "Highlights",
+                "name": "program_highlights",
+                "type": "textarea",
+                "rows": 6,
+                "new_lines": "",
+                "instructions": "One per line. Rendered as a bullet list."
+            },
+            {
+                "key": "field_fse_program_price",
+                "label": "Pricing note",
+                "name": "program_price",
+                "type": "text",
+                "instructions": "Optional, e.g. $525 for two sessions."
+            },
+            {
+                "key": "field_fse_program_awaiting_photo",
+                "label": "Photography still pending",
+                "name": "program_awaiting_photo",
+                "type": "true_false",
+                "ui": 1,
+                "instructions": "Publishes the card with a branded placeholder graphic so copy can go live before photos arrive."
+            }
+        ]
+    },
+    {
+        "key": "group_fse_service_group",
+        "title": "Quick Navigation Button",
+        "location": [
+            [
+                {
+                    "param": "taxonomy",
+                    "operator": "==",
+                    "value": "fse_service_group"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_fse_group_icon",
+                "label": "Button icon",
+                "name": "group_icon",
+                "type": "text",
+                "instructions": "A single emoji or character shown on the quick-navigation button.",
+                "maxlength": 4
+            },
+            {
+                "key": "field_fse_group_eyebrow",
+                "label": "Section eyebrow",
+                "name": "group_eyebrow",
+                "type": "text",
+                "instructions": "Short line above the section heading, e.g. \"Whole-school assemblies\"."
+            },
+            {
+                "key": "field_fse_group_nav_label",
+                "label": "Menu label",
+                "name": "group_nav_label",
+                "type": "text",
+                "instructions": "Optional shorter wording for the header menu. Leave blank to use the full name."
+            },
+            {
+                "key": "field_fse_group_blurb",
+                "label": "Short blurb",
+                "name": "group_blurb",
+                "type": "textarea",
+                "rows": 2
+            },
+            {
+                "key": "field_fse_group_image",
+                "label": "Section image",
+                "name": "group_image",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium"
+            }
+        ]
+    }
+]

@@ -5,7 +5,7 @@
  * @package fse
  */
 
-$fse_phone   = fse_home_field( 'footer_phone', '(949) 496-6244' );
+$fse_phone   = fse_home_field( 'footer_phone', '(714) 322-0207' );
 $fse_email   = fse_home_field( 'footer_email', 'programs@full-spectrum.org' );
 $fse_address = fse_home_field( 'footer_address', 'P.O. Box 596, Dana Point, CA 92629' );
 ?>
@@ -68,7 +68,15 @@ $fse_address = fse_home_field( 'footer_address', 'P.O. Box 596, Dana Point, CA 9
 			);
 			?>
 		</p>
-		<p><?php esc_html_e( 'Designed by NerdVision', 'fse' ); ?></p>
+		<p>
+			<?php
+			printf(
+				/* translators: %s: linked NerdVision brand name. */
+				esc_html__( 'Designed by %s', 'fse' ),
+				'<a class="footer__brand-link" href="https://nerdvision.tech" target="_blank" rel="noopener">NerdVision</a>'
+			);
+			?>
+		</p>
 	</div>
 </footer>
 
