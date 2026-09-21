@@ -1,0 +1,369 @@
+[
+    {
+        "key": "group_mrh_home",
+        "title": "Home Page Sections",
+        "location": [
+            [
+                {
+                    "param": "page_type",
+                    "operator": "==",
+                    "value": "front_page"
+                }
+            ]
+        ],
+        "position": "acf_after_title",
+        "style": "seamless",
+        "fields": [
+            {
+                "key": "field_mrh_tab_hero",
+                "label": "Hero",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_mrh_hero_kicker",
+                "label": "Kicker",
+                "name": "hero_kicker",
+                "type": "text",
+                "default_value": "Mister Hypnosis"
+            },
+            {
+                "key": "field_mrh_hero_heading",
+                "label": "Headline",
+                "name": "hero_heading",
+                "type": "text",
+                "default_value": "Richard Rumble"
+            },
+            {
+                "key": "field_mrh_hero_intro",
+                "label": "Intro",
+                "name": "hero_intro",
+                "type": "textarea",
+                "rows": 3,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_mrh_hero_portrait",
+                "label": "Portrait",
+                "name": "hero_portrait",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium",
+                "instructions": "Not shown in the current hero layout — the stage photo below doubles as the portrait."
+            },
+            {
+                "key": "field_mrh_hero_background",
+                "label": "Stage photo",
+                "name": "hero_background",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_mrh_hero_video",
+                "label": "Sizzle reel Vimeo ID",
+                "name": "hero_video",
+                "type": "text",
+                "instructions": "Numbers only, e.g. 955007390. Keep reels under 90 seconds."
+            },
+            {
+                "key": "field_mrh_tab_about",
+                "label": "About & Credentials",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_mrh_about_heading",
+                "label": "Heading",
+                "name": "about_heading",
+                "type": "text",
+                "default_value": "A Magic Castle Member Who Works Clean"
+            },
+            {
+                "key": "field_mrh_about_body",
+                "label": "Body copy",
+                "name": "about_body",
+                "type": "wysiwyg",
+                "toolbar": "basic",
+                "media_upload": 0
+            },
+            {
+                "key": "field_mrh_about_image",
+                "label": "Magic Castle credential photo",
+                "name": "about_image",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium"
+            },
+            {
+                "key": "field_mrh_credentials_list",
+                "label": "Memberships & credentials",
+                "name": "credentials_list",
+                "type": "textarea",
+                "rows": 6,
+                "new_lines": "",
+                "instructions": "One per line.",
+                "default_value": "NLP Master Practitioner\nAmerican Board of Hypnotherapy\nNational Guild of Hypnotists\nSociety of Applied Hypnosis\nInternational Brotherhood of Magicians\nThe Magic Castle, Hollywood CA"
+            },
+            {
+                "key": "field_mrh_credentials_badge",
+                "label": "Credential badge",
+                "name": "credentials_badge",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "medium",
+                "instructions": "A membership mark such as the Magic Castle logo. White-on-transparent PNG reads best against the dark background."
+            },
+            {
+                "key": "field_mrh_tab_audiences",
+                "label": "Audiences",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_mrh_audiences_heading",
+                "label": "Heading",
+                "name": "audiences_heading",
+                "type": "text",
+                "default_value": "Who Is In The Room?"
+            },
+            {
+                "key": "field_mrh_audiences_intro",
+                "label": "Intro",
+                "name": "audiences_intro",
+                "type": "textarea",
+                "rows": 2,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_mrh_tab_contact",
+                "label": "Booking",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_mrh_contact_heading",
+                "label": "Heading",
+                "name": "contact_heading",
+                "type": "text",
+                "default_value": "Book Mister Hypnosis"
+            },
+            {
+                "key": "field_mrh_contact_intro",
+                "label": "Intro",
+                "name": "contact_intro",
+                "type": "textarea",
+                "rows": 3,
+                "new_lines": "wpautop"
+            },
+            {
+                "key": "field_mrh_contact_recipients",
+                "label": "Send enquiries to",
+                "name": "contact_recipients",
+                "type": "text",
+                "instructions": "Comma separated. Every submission is also stored under Enquiries.",
+                "default_value": "hypno2u@hotmail.com, hypno2u@icloud.com"
+            },
+            {
+                "key": "field_mrh_contact_success",
+                "label": "Thank-you message",
+                "name": "contact_success",
+                "type": "text",
+                "default_value": "Thank you — Richard will be in touch within one business day."
+            },
+            {
+                "key": "field_mrh_tab_footer",
+                "label": "Footer",
+                "name": "",
+                "type": "tab"
+            },
+            {
+                "key": "field_mrh_footer_phone",
+                "label": "Phone",
+                "name": "footer_phone",
+                "type": "text",
+                "default_value": "(714) 322-0207"
+            },
+            {
+                "key": "field_mrh_footer_email",
+                "label": "Email",
+                "name": "footer_email",
+                "type": "text",
+                "default_value": "richard@misterhypnosis.com"
+            },
+            {
+                "key": "field_mrh_footer_address",
+                "label": "Mailing address",
+                "name": "footer_address",
+                "type": "text",
+                "default_value": "P.O. Box 596, Dana Point, CA 92629"
+            },
+            {
+                "key": "field_mrh_footer_facebook",
+                "label": "Facebook URL",
+                "name": "footer_facebook",
+                "type": "url"
+            },
+            {
+                "key": "field_mrh_footer_instagram",
+                "label": "Instagram URL",
+                "name": "footer_instagram",
+                "type": "url"
+            }
+        ]
+    },
+    {
+        "key": "group_mrh_audience",
+        "title": "Audience Section",
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "mrh_audience"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_mrh_audience_kicker",
+                "label": "Kicker",
+                "name": "audience_kicker",
+                "type": "text",
+                "instructions": "e.g. High schools"
+            },
+            {
+                "key": "field_mrh_audience_tagline",
+                "label": "Tagline",
+                "name": "audience_tagline",
+                "type": "text"
+            },
+            {
+                "key": "field_mrh_audience_points",
+                "label": "Selling points",
+                "name": "audience_points",
+                "type": "textarea",
+                "rows": 5,
+                "new_lines": "",
+                "instructions": "One per line."
+            },
+            {
+                "key": "field_mrh_audience_video",
+                "label": "Vimeo ID",
+                "name": "audience_video",
+                "type": "text",
+                "instructions": "Numbers only. Replaces the old AudioAcrobat players with a responsive HTML5 embed."
+            },
+            {
+                "key": "field_mrh_audience_cta",
+                "label": "Button label",
+                "name": "audience_cta",
+                "type": "text",
+                "default_value": "Check your date"
+            }
+        ]
+    },
+    {
+        "key": "group_mrh_testimonial",
+        "title": "Testimonial Details",
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "mrh_testimonial"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_mrh_testimonial_role",
+                "label": "Role & organisation",
+                "name": "testimonial_role",
+                "type": "text",
+                "instructions": "e.g. Activities Director, Dana Hills High School"
+            },
+            {
+                "key": "field_mrh_testimonial_audience",
+                "label": "Show this testimonial with",
+                "name": "testimonial_audience",
+                "type": "post_object",
+                "post_type": [
+                    "mrh_audience"
+                ],
+                "return_format": "id",
+                "allow_null": 1,
+                "ui": 1,
+                "instructions": "Optional. Leave blank to show in the general testimonial row."
+            },
+            {
+                "key": "field_mrh_testimonial_video",
+                "label": "Vimeo ID",
+                "name": "testimonial_video",
+                "type": "text",
+                "instructions": "Optional video version of this testimonial."
+            }
+        ]
+    },
+    {
+        "key": "group_mrh_client",
+        "title": "Client Logo",
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "mrh_client"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_mrh_client_logo",
+                "label": "Logo",
+                "name": "client_logo",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "mrh-logo",
+                "instructions": "Transparent PNG or SVG works best. Leave blank to use the featured image."
+            },
+            {
+                "key": "field_mrh_client_url",
+                "label": "Website",
+                "name": "client_url",
+                "type": "url"
+            }
+        ]
+    },
+    {
+        "key": "group_mrh_gallery",
+        "title": "Gallery Image",
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "mrh_gallery"
+                }
+            ]
+        ],
+        "fields": [
+            {
+                "key": "field_mrh_gallery_image",
+                "label": "Image",
+                "name": "gallery_image",
+                "type": "image",
+                "return_format": "id",
+                "preview_size": "mrh-card",
+                "instructions": "Leave blank to use the featured image."
+            },
+            {
+                "key": "field_mrh_gallery_caption",
+                "label": "Caption",
+                "name": "gallery_caption",
+                "type": "text",
+                "instructions": "Shown under the image and used as the alt text."
+            }
+        ]
+    }
+]
