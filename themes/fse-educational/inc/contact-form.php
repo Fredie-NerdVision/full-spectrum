@@ -141,6 +141,18 @@ add_action(
 			exit;
 		}
 
+		if ( ! fse_spam_turnstile_passes( isset( $_POST['cf-turnstile-response'] ) ? sanitize_text_field( wp_unslash( $_POST['cf-turnstile-response'] ) ) : '' ) ) {
+			wp_safe_redirect( add_query_arg( 'fse_error', 'challenge', $redirect ) . '#contact' );
+			exit;
+		}
+
+		$spam = fse_spam_score(
+			$values,
+			fse_spam_token_age( isset( $_POST['fse_started'] ) ? sanitize_text_field( wp_unslash( $_POST['fse_started'] ) ) : '' )
+		);
+
+		$held = $spam['score'] >= FSE_SPAM_THRESHOLD;
+
 		$name  = trim( $values['first_name'] . ' ' . $values['last_name'] );
 		$lines = array();
 
@@ -155,7 +167,7 @@ add_action(
 		wp_insert_post(
 			array(
 				'post_type'    => FSE_ENQUIRY_POST_TYPE,
-				'post_status'  => 'publish',
+				'post_status'  => $held ? 'draft' : 'publish',
 				'post_title'   => sprintf(
 					/* translators: 1: enquirer name, 2: organization or service. */
 					__( '%1$s — %2$s', 'fse' ),
@@ -163,8 +175,22 @@ add_action(
 					$values['organization'] ? $values['organization'] : $values['service']
 				),
 				'post_content' => $body,
+				'meta_input'   => array(
+					FSE_SPAM_SCORE_META  => $spam['score'],
+					FSE_SPAM_REASON_META => implode( '; ', $spam['reasons'] ),
+				),
 			)
 		);
+
+		/*
+		 * A held submission is kept and marked, never mailed and never bounced
+		 * back at the sender: a bot learns nothing from the response, and a
+		 * school that trips the filter still reaches the admin.
+		 */
+		if ( $held ) {
+			wp_safe_redirect( add_query_arg( 'fse_sent', '1', $redirect ) . '#contact' );
+			exit;
+		}
 
 		$headers = array(
 			'Content-Type: text/plain; charset=UTF-8',

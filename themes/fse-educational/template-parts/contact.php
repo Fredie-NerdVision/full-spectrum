@@ -40,6 +40,8 @@ $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fs
 						esc_html_e( 'That email address does not look right — please check it and send again.', 'fse' );
 					} elseif ( 'expired' === $fse_error ) {
 						esc_html_e( 'The form timed out. Please send it once more.', 'fse' );
+					} elseif ( 'challenge' === $fse_error ) {
+						esc_html_e( 'The spam check did not complete. Please tick the box and send again.', 'fse' );
 					} else {
 						esc_html_e( 'Please complete the required fields.', 'fse' );
 					}
@@ -55,6 +57,8 @@ $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fs
 					<label for="fse_website"><?php esc_html_e( 'Website', 'fse' ); ?></label>
 					<input type="text" id="fse_website" name="fse_website" tabindex="-1" autocomplete="off">
 				</p>
+
+				<?php fse_spam_timestamp_field(); ?>
 
 				<?php foreach ( fse_contact_fields() as $fse_name => $fse_field ) : ?>
 					<?php
@@ -93,6 +97,8 @@ $fse_error   = isset( $_GET['fse_error'] ) ? sanitize_key( wp_unslash( $_GET['fs
 						<?php endif; ?>
 					</div>
 				<?php endforeach; ?>
+
+				<?php fse_spam_turnstile_field(); ?>
 
 				<div class="form__actions">
 					<button class="btn btn--accent btn--lg" type="submit"><?php esc_html_e( 'Send Request', 'fse' ); ?></button>
