@@ -59,6 +59,24 @@ are sent to the comma-separated recipients in the home-page ACF field, with
 `Reply-To` set to the submitter and `From` set to `website@<site-domain>` for SPF
 alignment.
 
+### Spam filtering
+
+`inc/spam-guard.php` in each theme adds three layers on top of the honeypot: a
+signed timestamp so a form submitted in under four seconds is treated as a bot,
+a score built from links and known sales-pitch phrasing, and optional Cloudflare
+Turnstile. A submission scoring 4 or more is still stored as an Enquiry — as a
+draft, with the reasons in the `Spam check` column of the Enquiries list — but is
+not mailed, and the sender still sees the normal thank-you. Nothing is deleted,
+so a misjudged enquiry is recoverable.
+
+Turnstile stays off until both keys exist in `wp-config.php`; without them the
+form behaves exactly as before:
+
+```php
+define( 'FSE_TURNSTILE_SITE_KEY', '0x...' );   // MRH_ on misterhypnosis
+define( 'FSE_TURNSTILE_SECRET_KEY', '0x...' );
+```
+
 ## Local development
 
 ```bash

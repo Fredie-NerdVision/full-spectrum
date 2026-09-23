@@ -158,6 +158,18 @@ add_action(
 			exit;
 		}
 
+		if ( ! mrh_spam_turnstile_passes( isset( $_POST['cf-turnstile-response'] ) ? sanitize_text_field( wp_unslash( $_POST['cf-turnstile-response'] ) ) : '' ) ) {
+			wp_safe_redirect( add_query_arg( 'mrh_error', 'challenge', $redirect ) . '#booking' );
+			exit;
+		}
+
+		$spam = mrh_spam_score(
+			$values,
+			mrh_spam_token_age( isset( $_POST['mrh_started'] ) ? sanitize_text_field( wp_unslash( $_POST['mrh_started'] ) ) : '' )
+		);
+
+		$held = $spam['score'] >= MRH_SPAM_THRESHOLD;
+
 		$lines = array();
 
 		foreach ( mrh_form_fields() as $key => $field ) {
@@ -171,11 +183,25 @@ add_action(
 		wp_insert_post(
 			array(
 				'post_type'    => MRH_ENQUIRY_POST_TYPE,
-				'post_status'  => 'publish',
+				'post_status'  => $held ? 'draft' : 'publish',
 				'post_title'   => sprintf( '%s — %s', $values['name'], $values['event_type'] ),
 				'post_content' => $body,
+				'meta_input'   => array(
+					MRH_SPAM_SCORE_META  => $spam['score'],
+					MRH_SPAM_REASON_META => implode( '; ', $spam['reasons'] ),
+				),
 			)
 		);
+
+		/*
+		 * A held submission is kept and marked, never mailed and never bounced
+		 * back at the sender: a bot learns nothing from the response, and a real
+		 * enquiry that trips the filter still reaches the admin.
+		 */
+		if ( $held ) {
+			wp_safe_redirect( add_query_arg( 'mrh_sent', '1', $redirect ) . '#booking' );
+			exit;
+		}
 
 		wp_mail(
 			mrh_form_recipients(),

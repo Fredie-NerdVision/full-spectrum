@@ -13,9 +13,10 @@ $mrh_sent    = isset( $_GET['mrh_sent'] ); // phpcs:ignore WordPress.Security.No
 $mrh_error   = isset( $_GET['mrh_error'] ) ? sanitize_key( wp_unslash( $_GET['mrh_error'] ) ) : ''; // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- display only.
 
 $mrh_errors = array(
-	'required' => __( 'Please fill in your name, email and event type.', 'mrh' ),
-	'email'    => __( 'That email address does not look right — please check it.', 'mrh' ),
-	'expired'  => __( 'The form timed out. Please send it once more.', 'mrh' ),
+	'required'  => __( 'Please fill in your name, email and event type.', 'mrh' ),
+	'email'     => __( 'That email address does not look right — please check it.', 'mrh' ),
+	'expired'   => __( 'The form timed out. Please send it once more.', 'mrh' ),
+	'challenge' => __( 'The spam check did not complete. Please tick the box and send again.', 'mrh' ),
 );
 ?>
 
@@ -50,6 +51,8 @@ $mrh_errors = array(
 					<label for="mrh-website"><?php esc_html_e( 'Leave this field empty', 'mrh' ); ?></label>
 					<input type="text" id="mrh-website" name="mrh_website" tabindex="-1" autocomplete="off">
 				</p>
+
+				<?php mrh_spam_timestamp_field(); ?>
 
 				<?php foreach ( mrh_form_fields() as $mrh_name => $mrh_field ) : ?>
 					<?php $mrh_id = 'mrh-' . str_replace( '_', '-', $mrh_name ); ?>
@@ -93,6 +96,8 @@ $mrh_errors = array(
 						<?php endif; ?>
 					</p>
 				<?php endforeach; ?>
+
+				<?php mrh_spam_turnstile_field(); ?>
 
 				<p class="form__actions">
 					<button class="btn btn--gold btn--lg" type="submit"><?php esc_html_e( 'Send booking enquiry', 'mrh' ); ?></button>
